@@ -1,0 +1,269 @@
+<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Madman's"><title> | So ugly</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">So ugly</h1><a id="logo" href="/.">So ugly</a><p class="description">2018/09/17</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Start</i></a><a href="/archives/"><i class="fa fa-archive"> Archiv</i></a><a href="/about/"><i class="fa fa-user"> Über</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-meta">Sep 17, 2018<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><h1 id="Maven项目管理与Mybatis"><a href="#Maven项目管理与Mybatis" class="headerlink" title=" Maven项目管理与Mybatis "></a><center> Maven项目管理与Mybatis </center></h1><h2 id="Maven工具"><a href="#Maven工具" class="headerlink" title="Maven工具"></a>Maven工具</h2><ul>
+<li>核心命令是：mvn</li>
+<li>说明：项目的管理工具，一个项目的编译、运行、测试、发布等功能的管理工具，基于POM（项目对象模型）的概念将项目中依赖的jar包从本地或远程仓库中加载到项目的classpath中。</li>
+</ul>
+<h3 id="maven的使用"><a href="#maven的使用" class="headerlink" title="maven的使用"></a>maven的使用</h3><ul>
+<li>创建项目的命令<br>mvn archetype:generate   <ul>
+<li><code>-DarchetypeCatalog=internal</code>  </li>
+<li><code>-DgroupId=com.qfxa</code></li>
+<li><code>-DartifactId=helloapp</code></li>
+<li><code>-DarchetypeArtifactId=maven-archetype-quickstart</code>  </li>
+<li><code>-DinteractiveMode=false</code></li>
+</ul>
+</li>
+<li>常用命令<ul>
+<li><code>mvn compile</code> 编译</li>
+<li><code>mvn test-compile</code>编译测试代码</li>
+<li><code>mvn test</code>运行测试</li>
+<li><code>mvn package</code>打包，java项目打包为jar包，web项目打包为war包</li>
+<li><code>mvn install</code>安装到本地仓库</li>
+<li><code>mvn deploy</code>发布到远程仓库或运行环境</li>
+</ul>
+</li>
+<li>maven项目的结构<br>src/main/java 存放的是Java的源代码<br>src/main/resources 存放一些资源文件（框架的配置文件及数据库连接的属性文件）<br>src/test/java 存放的是测试的源代码<blockquote>
+<p>以上文件目录在发布时，不会在classes目录下创建，仅有源码资源包<br>Eclispe 配置 maven时，可以通过配置<code>Dependencies</code>来快速引入jar包，步骤：window–&gt;show view–&gt;other–&gt;搜索maven–&gt; Maven repositories–&gt;Rebuild Index</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><ul>
+<li>概念<br>Mybatis是基于ibatis的，实现了ORM（对象关系映射）的功能，但不是完全实现。主要体现在只对查询结果进行关系映射，增删改查等语句必须自己写。另外实现了ORM框架有Hibernate、JPA。  </li>
+<li><p>主要技术<br>ORM框架实现的底层技术：Java反射+XML解析/注解+JDBC</p>
+</li>
+<li><p>核心结构技术</p>
+<ul>
+<li>引导层<ul>
+<li>基于XML方式<blockquote>
+<p>Mybaits有两种XML格式，一种为配置文件(主要配置连接数据库的相关信息)，一种为映射文件（主要为具体的映射关系）</p>
+</blockquote>
+</li>
+<li>基于API方式</li>
+</ul>
+</li>
+<li>框架支撑层<ul>
+<li>事务管理</li>
+<li>连接池管理</li>
+<li>缓存处理</li>
+<li>SQL语句处理<ol>
+<li>xml映射的方式</li>
+<li>注解方式</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>数据处理层<ol>
+<li>参数处理（ParaterHandler）</li>
+<li>SQL解析（SQLSource）</li>
+<li>SQL执行（Executor）</li>
+<li>结果处理和映射（ResultSetHandler）</li>
+</ol>
+</li>
+<li>接口层<ul>
+<li>基于Statement ID –语句ID方式</li>
+<li>基于Mapper接口 –常用于框架整合中使用<blockquote>
+<p>提供增删改查的的方法 ，注意使用<code>SqlSession</code>建立连接时，对数据库进行修改时需要提交事务</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><font color="red"><strong>Mybatis核心类</strong></font></p>
+<ul>
+<li><code>SqlSessionFactoryBuilder</code></li>
+<li><code>SqlSessionFactory</code></li>
+<li><strong><code>SqlSession</code></strong>    会话对象或数据操作的对象，主要来执行mybatis的语句（statementId）</li>
+<li>Resources  资源工具类，可以加载Class下的资源</li>
+</ul>
+</li>
+<li><p>#和$两个表示符 </p>
+<ul>
+<li>#{属性名}获取传入参数中的属性变量，在SQL语句解析时会使用？占位，在语句的预处理对象当中再赋值<blockquote>
+<p>传入参数 User User<br>语句：select <em> from User where name like #{name}<br>解析：select </em> from User where name like ？  </p>
+</blockquote>
+</li>
+<li>${属性名或value}获取传入参数对象中的属性值或参数的常量值，在语句的解析中直接使用常量值来替换，不进行预处理操作<blockquote>
+<p>执行: preparedStatement设置这个参数的值<br>语句：select <em> from user where name like ${name}<br>解析：select </em> from user where name like ‘disen’  </p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Mybatis数据结果映射规则<br><strong>字段名和resultType指定的类中属性名对应</strong><ul>
+<li>第一种：使用列的别名</li>
+<li>第二种：使用resultMap方式，将查询结果的字段名和实体类的属性进行匹配</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Mybatis的配置文件结构<ul>
+<li><font color="red">标签顺序</font>  <ul>
+<li><code>properties</code>（属性资源的使用）  </li>
+<li><code>settings</code>（全局参数设置用于支撑框架）  </li>
+<li><code>typeAliases</code>（类型别名）  </li>
+<li><code>typeHandlers</code>（类型处理器）  </li>
+<li><code>objectFactory</code>（对象工厂）  </li>
+<li><code>plugins</code>（插件）  </li>
+<li><code>environments</code>（环境信息集合） <ul>
+<li>environment（单个环境信息）</li>
+<li>transactionManager（事物）</li>
+<li>dataSource（数据源）  </li>
+</ul>
+</li>
+<li><code>mappers</code>（映射器/映射文件）  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>配置文件详解</p>
+<ol>
+<li><p>属性资源–xxx.properties   </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">"jdbc.properties"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 开启默认值选项,默认值使用:开始,如下例$&#123;user :123&#125; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"org.apache.ibatis.parsing.PropertyParser.enable-default-value"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>settings设置</p>
+<ul>
+<li>jdbcTypeForNull<br>设置变量为Null（null，varchar，other）</li>
+<li>具体参考<a href="http://blog.csdn.net/u014231523/article/details/53056032" target="_blank" rel="noopener">这里</a></li>
+</ul>
+</li>
+<li>typeAliases设置类的别名<ol>
+<li>为每个类来指定别名</li>
+<li>为包下的所有实体类统一指定别名，每个实体类的别名是类的简称（类名）</li>
+</ol>
+</li>
+<li>typeHandlers自定义类型处理器<ol>
+<li>创建类，并继承BasrTypeHandler，并指定转换的实体类的类型，同时实现四个方法（一个set*（），三个get*（））<br>set是向数据库写数据时回调<br>get是从查询结果集中读取数据时回调</li>
+</ol>
+</li>
+<li>mappers引入映射文件<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resources</span>=<span class="string">"单个映射文件的文件系统的路径"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"mapper接口类所在的类名"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>Mapper接口编程风格</p>
+<ul>
+<li>创建Mapper接口类</li>
+<li>在同一个包下创建Mapper接口对应的映射文件，<font color="red">且文件名与接口类名一致，在映射文件的命名空间的属性需写为Mapper接口的<strong>全限定名</strong></font></li>
+<li>在配置文件中的<code>&lt;mapper&gt;</code>下使用<code>&lt;package name=&quot;&quot;&gt;</code>添加Mapper映射文件。</li>
+<li>在映射文件中声明语句同时在Mapper接口中声明方法。<font color="red">方法名称必须与语句ID匹配。包含参数及参数类型一致</font></li>
+<li><p>通过SqlSession的<code>getMapper（Class）</code>方法来获取Mapper接口的对象</p>
+<blockquote>
+<p><code>#{arg0}</code> <code>#{arg1}</code> <code>#{param1}</code> <code>#{param2}</code>这种情况主要体现在Mapper接口方法参数上</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>映射文件语句相关的应用</p>
+<ul>
+<li>在<code>insert</code>标签中可以使用<code>&lt;selectKey&gt;</code>来生成主键扩展：当插入数据成功后，可以返回数据的ID</li>
+</ul>
+</li>
+<li><p>Mybatis下的多表联查</p>
+<ul>
+<li>定义：多张表通过关联关系查询出相关的数据，对这些数据进行映射（多对一、一对多标签）</li>
+<li>实现多对一的关联查询使用<code>&lt;association&gt;</code><ul>
+<li>常用属性：<ul>
+<li>property 实体类中关联对象的属性名（即主表对应实体类中的对象）</li>
+<li>column: 查询实体类的结果中，与关联对象对应的外键字段</li>
+<li>select：根据提供的外键字段的值查询唯一的关联的对象，属性值为语句的ID，如果该语句在其他的Mapper映射文件中，则需写成全限定文件名（包含命名空间）</li>
+<li>fetchType 加载方式<ul>
+<li>lazy 延迟加载</li>
+<li>eager 立即加载</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>实现一对多的关联查询<code>colllection</code><ul>
+<li>常用属性<ul>
+<li>propety：在实体类中的一个属性名</li>
+<li>ofType：集合中元素的类型</li>
+<li>column：关联查询中的条件取值（查询结果中的列值）</li>
+<li>select：关联查询的语句ID</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>mybatis复杂SQL语句使用注意事项<ul>
+<li>清楚表与表之间的主外键关系</li>
+<li>了解内连接与外连接的区别<ul>
+<li>内连接：join on —&gt;</li>
+<li>外链接: left|right join on          查询结果中可能包含多余数据（left：左表的多余 right：右表的多余）</li>
+</ul>
+</li>
+<li>Mybatis中写复杂语句时，对每个表的字段要设置别名，别名规则一般使用表名或具有一定含义的字符</li>
+<li>处理映射时，找出关系最顶层的对象，按照对象中的属性一层层向下映射    </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Mybatis下的二级缓存<code>&lt;cache&gt;</code>针对查询结果数据<ul>
+<li>mybatis 缓存层次<ul>
+<li>一级缓存：本地Session缓存(默认)数据有效性是同一个会话,使用<code>&lt;settings&gt;</code>设置;localCacheScope 本地缓存的范围（SESSION，STATEMENT）</li>
+<li>二级缓存：来存储所有Session中查询的数据<ul>
+<li>在<code>&lt;settings&gt;</code>配置中使用<code>cacheEnable</code>设置为true表示开启所有的Mapper映射文件（或某一命名空间）下的二级缓存</li>
+<li>在Mapper映射文件中，使用<code>&lt;cache/&gt;</code>标签开启当前命名空间的缓存。且可以通过<code>&lt;cache&gt;</code>中的相关属性（size，eviction，readOnly，flushInterbal）来定制<br>PS：<font color="red">二级缓存在使用时，只针对查询的结果，如果数据发生变更,则不会存入二级缓存</font><blockquote>
+<p>在<code>&lt;select&gt;</code>标签中使用<code>useCache</code>属性来设置是否对查询结果缓存，默认为true，使用flushCache设置为true表示刷新缓存，可以在<code>&lt;update&gt;`</code><delete><code></code><insert>`这些标签中使用flushCache来刷新缓存</insert></delete></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Mabatis的动态SQL（使用OGNL表达式）</p>
+<ul>
+<li>if</li>
+<li>choose（when,otherwise）</li>
+<li>trim</li>
+<li>foreach</li>
+</ul>
+</li>
+<li><p>MVC开发模式</p>
+<ul>
+<li>V：View视图层–JSP、HTML、模板：展示数据</li>
+<li>C：Controller 控制器层–Servlet。处理V层发出的请求，根据请求调用业务Model来处理数据并将数据处理的结果返回给View。</li>
+<li>M：Model模型层– JavaBean类<ul>
+<li>数据模型：即POJO（普通的Java类）</li>
+<li>业务模型类：处理Controller控制器传入的数据，并与数据库进行交互。细分两大模块，目的是分离业务处理和数据库操作，细分如下：<ul>
+<li>service</li>
+<li>Dao</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设计的目标是实现View和Model分离</li>
+<li>经典的MVC层次：View–Controller–Service–Dao,还有一个JavaBean来贯穿所有层次。JavaBean所在的包名常被命名为po包、bean包、domain包、entity（实体类）包。</li>
+<li>使用MVC设计思想的框架结构：<ul>
+<li>域名包<ul>
+<li>view</li>
+<li>controller（控制器）<ul>
+<li>form （表单）</li>
+<li>validate（验证信息）</li>
+<li>format（格式）</li>
+</ul>
+</li>
+<li>model<ul>
+<li>po一般是java实体类（bean）</li>
+<li>service一般是控制层和dao层之间的交互<ul>
+<li>service.impl(接口) </li>
+</ul>
+</li>
+<li>dao一般负责与数据库的交互<ul>
+<li>dao.impl(接口)   </li>
+</ul>
+</li>
+<li>utils 工具包</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="tags"></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://yoursite.com"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Kategorien</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Letzte</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/Maven与Mybatis/">Maven与Mybatis</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Blogroll</i></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">So ugly.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>
