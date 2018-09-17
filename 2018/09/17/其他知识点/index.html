@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Madman's"><title> | So ugly</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">So ugly</h1><a id="logo" href="/.">So ugly</a><p class="description">2018/09/17</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-meta">Sep 17, 2018<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><ol>
+<li>解决数据库中文乱码:<code>在数据库连接中使用localhost:3306/项目?useUnicode=true&amp;amp;charactrtEncoding=utf-8</code>   </li>
+<li>在使用反射时必须为该类指定空参构造,且类不能为final</li>
+<li>建表完成后添加外键  <code>alter table cart add shop_id int</code></li>
+<li><code>net start SVN</code> 启动svn服务器</li>
+<li>spring 集成hibernate时session创建如果使用getCurrentSession()方法,则查询方法也需要开启事务 使用opensession则不需要</li>
+<li>一般事务在Service层使用@Transactional开启,使用@Transactional(propagation=Propagation.NOT_SUPPORTED)让方法例外 不进入事务</li>
+<li>@Resourse和@Autowired的区别:<br>使用<code>@Resource</code>表示通过名称和类型来查找相应的方法/属性,使用<code>@Autowried</code>表示只通过类型查找相应的方法/属性 建议使用@Resourse 这是javaEE自带的注解</li>
+<li>自定义类型转换器步骤<ol>
+<li>在spring配置文件中配置</li>
+<li>自定义一个类实现Converter&lt;S,T&gt;方法  s表示源类型 t表示目标类型</li>
+<li>实现convert方法  </li>
+</ol>
+</li>
+<li>Spring集成Hibernate时的事务处理(注解方式)<br>可以在spring配置文件中设置启用事务注解<code>&lt;tx:annotation-driven transaction-manager=&quot;txManager&quot; proxy-target-class=&quot;true&quot;/&gt;</code></li>
+<li>HTML中输入框可指定<code>placeholder=&#39;&#39;</code>来作为提示信息</li>
+<li><blockquote>
+<p>netstat -ano 在命令提示行中查看端口占用</p>
+</blockquote>
+</li>
+<li>session的persist方法和save的区别(Hibernate中)<ul>
+<li>save有一个序列化的接口返回值,也就是主键id,</li>
+<li>persist没有返回值,且使用persist需要开启事务,但是save方法不需要</li>
+</ul>
+</li>
+<li>定义泛型<ul>
+<li>定义新的泛型<code>&lt;T&gt;</code>来声明,声明的位置有两个级别,第一种级别在类名后面声明,即类级别泛型,这种级别的泛型在整个类中是有效的,第二种级别是在方法上访问修饰符后声明,属于局部性泛型,即只能在方法内部有效.</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//第一种级别</span><br><span class="line">public interface Dao&lt;T&gt;&#123;</span><br><span class="line">    public void save(T t)</span><br><span class="line">&#125;</span><br><span class="line">//第二种级别</span><br><span class="line">public class BaseDao&#123;</span><br><span class="line">    public &lt;T&gt; T get(Class&lt;T&gt; cls)&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="14">
+<li><code>static</code>不能修饰局部变量,<code>static</code>可以修饰类</li>
+<li>run()和start()方法,start才会开启线程</li>
+<li>一个类如果不指定构造器,则系统会自动生成一个<code>public</code>为修饰符的构造器</li>
+<li>栈底层是链表</li>
+<li>数组是连续存放的,集合是根据底层数据结构不同来存放的</li>
+<li>ArrayList的父类是abstractList</li>
+</ol>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2018/09/17/设计模式/"></a><a class="next" href="/2018/09/17/反射及反射的应用/"></a></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://yoursite.com"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/疑难杂症/">疑难杂症</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/设计模式/">设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/其他知识点/">其他知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/反射及反射的应用/">反射及反射的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/SpringData/">SpringData</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/solr/">solr</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/Shiro/">Shiro</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/Linux/">Linux</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/DispatchServlet/">DispatchServlet</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">So ugly.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>

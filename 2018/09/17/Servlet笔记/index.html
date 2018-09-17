@@ -1,0 +1,427 @@
+<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Madman's"><title> | So ugly</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">So ugly</h1><a id="logo" href="/.">So ugly</a><p class="description">2018/09/17</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-meta">Sep 17, 2018<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><h1 id="Servlet-JSP"><a href="#Servlet-JSP" class="headerlink" title="Servlet+JSP"></a>Servlet+JSP</h1><p><center> <code>Servlet</code>  <code>JSP</code> <code>@Trtmu</code></center></p>
+<p><hr></p>
+<h3 id="Servlet-Tomcat-JSP简介"><a href="#Servlet-Tomcat-JSP简介" class="headerlink" title="Servlet+Tomcat+JSP简介"></a>Servlet+Tomcat+JSP简介</h3><ul>
+<li><p><strong>Servlet是一种服务器端的JAVA应用程序，具有独立于平台和协议的特性，可以生成动态的web页面，Servlet由Servlet容器管理，也叫Servlet的运行环境，给发送的请求和响应之上提供网络服务，比如tomcat</strong></p>
+</li>
+<li><p>Tomcat是轻量级Web应用服务器而且是Servlet规范和JSP规范的开源实现，之所以大范围的流行，是因为Tomcat技术先进、性能稳定，且免费，所以比较流行</p>
+</li>
+<li>JSP(Java Server Pages)java服务器页面，JSP属于java的组件，使用的是java语言<br>JSP是一种动态网页技术标准，可以在传统网页HTML中插入Java程序段<br>JSP是网站的VIEW（同时还能提供java的执行和显示结果）。使用JSP开发的Web引用是跨平台的。</li>
+</ul>
+<font color="red"><br><strong>JSP与servlet同属于javaee的组件，所以一次编写，到处运行</strong></font>  
+
+<ul>
+<li>JSP调用Java的格式  <code>&lt;%Java代码%&gt;</code><br>引用变量 <code>&lt;%=name%&gt;</code>   </li>
+</ul>
+<h3 id="Servlet的实现方式"><a href="#Servlet的实现方式" class="headerlink" title="Servlet的实现方式"></a><strong>Servlet的实现方式</strong></h3><ul>
+<li>Servlet的工作原理<ul>
+<li>根据请求从WEB容器中获取到对应的Servlet处理类</li>
+<li>第一次请求会实例化Servlet类,同时会调用<code>init(ServletConfig)</code>方法,在<code>init</code>方法中可以通过<code>ServletConfig</code>来获取初始化参数值.<blockquote>
+<p>拓展: 在HttpServlet的<code>init(ServletConfig)</code>方法中会调用它的<code>init()</code>方法</p>
+</blockquote>
+</li>
+<li>如果非第一次调用,则直接调用<code>service(ServletRequest,ServletResponse)</code>方法,在方法中,通过request对象的<code>getMethod()</code>来获取请求的方法<code>(GET,POST,DELETE,HEAD,PUT...)</code></li>
+<li>根据请求方法来执行对应的<code>doxxx()</code>来处理具体的业务功能,在<code>doxxx()</code>方法中可以通过request来获取请求数据,再调用某一个Model的业务处理方法,将处理的结果通过Reponse对象返回给请求端</li>
+<li>在Servlet结束时,会调用<code>destroy()</code>来回收具体业务处理过程中使用资源  <font color="red">servlet的加载模式为单例模式（只有一个对象）</font></li>
+</ul>
+</li>
+<li>继承 HttpServlet<strong>接口</strong>，重写其中的方法<ul>
+<li><code>void init()</code>初始化方法</li>
+<li><code>void service()</code>//根据请求的不同，动态的有web容器（Tomcat）去执行相应的doGet（）或doPost（）方法</li>
+<li><code>void destory()</code>销毁servlet时调用</li>
+</ul>
+</li>
+<li>继承 GernericServlet<strong>抽象类</strong>，重写其中的方法</li>
+<li>实现 Servlet接口  <blockquote>
+<p>  HttpServlet在实现Servlet接口时，覆写了service方法，该方法体内的代码会自动判断用户的请求方式，如为GET请求，则调用HttpServlet的doGet方法，如为Post请求，则调用doPost方法。因此，开发人员在编写Servlet时，通常只需要覆写doGet或doPost方法，而不要去覆写service方法。　</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>get和Post的区别</strong>   </p>
+<blockquote>
+<p>Post请求通常用于表单的提交，安全性高，提交的参数类型和长度无限制，会修改网页的一些信息；get请求是幂等的（每次请求的结果相同） 且大小有限制，url的长度有限制1kb（1024字节）是不安全的请求参数直接出现在地址栏中，点击相应的链接，get请求的参数会被附加在url之后。</p>
+</blockquote>
+<h3 id="servlet的两种注册方式"><a href="#servlet的两种注册方式" class="headerlink" title="servlet的两种注册方式"></a><strong>servlet的两种注册方式</strong></h3><ol>
+<li>注解方式（Eclispe生成Severlet时会自动生成与类名相同的注解）    </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>注解方式的属性</th>
+<th>属性含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>asyncSupported</td>
+<td>是否支持异步操作模式</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Servlet的描述</td>
+</tr>
+<tr>
+<td>displayName</td>
+<td>Servlet的显示名称</td>
+</tr>
+<tr>
+<td>initParams</td>
+<td>Servlet的init参数</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Servlet的名称</td>
+</tr>
+<tr>
+<td>urlPatterns</td>
+<td>Servlet的访问URL</td>
+</tr>
+<tr>
+<td>value</td>
+<td>Servlet的访问URL</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>配置web.xml方式</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>name<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.qf.XXXServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">				</span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>name<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">url-pattarn</span>&gt;</span>/hello<span class="tag">&lt;/<span class="name">url-pattart</span>&gt;</span>			</span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="servlet生命周期"><a href="#servlet生命周期" class="headerlink" title="servlet生命周期"></a><strong>servlet生命周期</strong></h3><p>Servlet生命周期分为三个阶段：</p>
+<ol>
+<li>初始化阶段 调用<code>init()</code>方法<ol>
+<li>Servlet容器启动时自动装载某些Servlet，实现它只需要在web.XML文件中的<servlet></servlet>之间添加代码：<code>&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</code></li>
+<li>在Servlet容器启动后，客户首次向Servlet发送请求</li>
+<li>Servlet类文件被更新后，重新装载Servlet<ul>
+<li>Servlet被装载后，Servlet容器创建一个Servlet实例并且调用Servlet的init()方法进行初始化。在Servlet的整个生命周期内，init()方法只被调用一次。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>响应客户请求阶段　调用<code>service()</code>方法<ul>
+<li>对于用户请求，servlet容器或创建对于这个请求的Request对象和Response对象，然后调用service方法，service方法会从request对象获得请求信息，处理请求，并通过response向客户返回响应信息</li>
+</ul>
+</li>
+<li>终止阶段　调用<code>destroy()</code>方法        <ul>
+<li>当WEB应用被终止，或Servlet容器终止运行，或Servlet容器重新装载Servlet新实例时，Servlet容器会先调用Servlet的destroy()方法，在destroy()方法中可以释放掉Servlet所占用的资源</li>
+</ul>
+</li>
+</ol>
+<h3 id="Servlet工作原理"><a href="#Servlet工作原理" class="headerlink" title="Servlet工作原理"></a>Servlet工作原理</h3><blockquote>
+<p>首先用户在客户端页面发送一个请求，收到请求后，Servlet调用<code>service（）</code>方法响应用户请求；匹配请求后，自行调用doGet或doPost方法进行解析request，使用response返回响应信息   </p>
+</blockquote>
+<ul>
+<li>Tomcat和Servlet是如何工作的<ol>
+<li>Web客户端向Servlet容器(Tomcat)发出Http请求</li>
+<li>Servlet容器接收Web客户端的请求</li>
+<li>Servlet容器创建一个HttpRequest对象，将Web客户端请求的信息封装到这个对象中。</li>
+<li>Servlet容器创建一个HttpResponse对象</li>
+<li>Servlet容器调用HttpResponse对象的<code>service</code>方法，将HttpRequest对象与HttpResponse对象作为参数传给HttpServlet对象。</li>
+<li>HttpServlet调用HttpRequest对象的有关方法，获取Http请求信息。</li>
+<li>HttpServlet调用HttpResponse对象的有关方法，生成响应数据。</li>
+<li>Servlet容器将HttpServlet的响应结果传给Web客户端。</li>
+</ol>
+</li>
+</ul>
+<p><hr></p>
+<h4 id="request的常用方法"><a href="#request的常用方法" class="headerlink" title="request的常用方法"></a>request的常用方法</h4><ul>
+<li>获取同一个请求中表单控件的值或问号传的值<ul>
+<li><code>request.getParameter(String s)</code>  </li>
+</ul>
+</li>
+<li>获取同一个请求中表单控件的多个同名的值（复选框）<ul>
+<li><code>request.getParameterValues(String[] s)</code>   </li>
+</ul>
+</li>
+<li>实现页面的跳转（内部转发）<ul>
+<li><code>RequestDispatcher对象.forward（request，response)</code>    </li>
+</ul>
+</li>
+<li>获取请求的方式<ul>
+<li><code>request.getMethod()</code>    </li>
+</ul>
+</li>
+<li>在request范围内将value存储在key中<ul>
+<li><code>requset.setAttribute(key,value)</code>    </li>
+</ul>
+</li>
+<li>在request范围中获取key所对应的value值 <ul>
+<li><code>request.getAttribute(key)</code>    </li>
+</ul>
+</li>
+<li>获取RequestDispatcher对象，包含的参数为具体的url<ul>
+<li><code>request.getRequestDispatcher(&quot;/要传输到的页面&quot;)</code>    </li>
+</ul>
+</li>
+<li>获取指定名称参数<ul>
+<li><code>request.getParameter(String s)</code>    </li>
+</ul>
+</li>
+<li>获取多个值（复选框）返回值为数组<ul>
+<li><code>request.getParameterValue(String s)</code>    </li>
+</ul>
+</li>
+<li>将信息保存到session中<ul>
+<li><code>request.getSession.setAttribute(约定id,Bean的对象)</code>   </li>
+</ul>
+</li>
+<li>跳转页面<ul>
+<li><code>request.getRequestDispatcher(&quot;链接&quot;).forward(request,response)</code>    </li>
+</ul>
+</li>
+<li>设置编码格式  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">"utf-8"</span>)    </span><br><span class="line">response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="jsp页面的取值"><a href="#jsp页面的取值" class="headerlink" title="jsp页面的取值"></a>jsp页面的取值</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">jsp:useBean</span> <span class="attr">id</span>=<span class="string">"约定ID"</span> <span class="attr">class</span>=<span class="string">"类名.Bean"</span> <span class="attr">scope</span>=<span class="string">"session"</span>&gt;</span><span class="tag">&lt;/<span class="name">jsp:useBean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">jsp:getProperty</span> <span class="attr">property</span>=<span class="string">"约定ID的值"</span> <span class="attr">name</span>=<span class="string">"约定ID"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="页面的跳转"><a href="#页面的跳转" class="headerlink" title="页面的跳转"></a>页面的跳转</h3><h4 id="JSP页面跳转Servlet"><a href="#JSP页面跳转Servlet" class="headerlink" title="JSP页面跳转Servlet"></a>JSP页面跳转Servlet</h4><p><code>javascript:window.location.href=&quot;CartSeverlet?id=&quot;+id;</code>可以传值</p>
+<h4 id="Jsp页面跳转Jsp"><a href="#Jsp页面跳转Jsp" class="headerlink" title="Jsp页面跳转Jsp"></a>Jsp页面跳转Jsp</h4><ul>
+<li>不带参数直接跳转<br><code>javascript:window.location.href=&quot;new.jsp&quot;;</code>按钮点击事件的Jsp跳转<br><code>&lt;%request.getRequestDispatcher(&quot;/tieshan.jsp&quot;).forward(request, response); %&gt;</code></li>
+<li>服务器的内部转发<br><code>response.sendRedirect(&quot;niumowang.jsp&quot;);</code>请求重定向</li>
+</ul>
+<ol start="2">
+<li>带参数的跳转  <strong><a href="http://blog.csdn.net/Qiuzhongweiwei/article/details/76037324" target="_blank" rel="noopener">点这里</a></strong></li>
+</ol>
+<h4 id="Servlet跳转JSP的方式"><a href="#Servlet跳转JSP的方式" class="headerlink" title="Servlet跳转JSP的方式"></a>Servlet跳转JSP的方式</h4><ul>
+<li><code>request.getRequestDispatcher(&quot;/pro.jsp&quot;).forward(request, response);</code>（内部跳转）  </li>
+<li><code>response.sendRedirect(request.getContextPath()+&quot;/xxx.jsp&quot;);</code>(请求重定向)</li>
+</ul>
+<h4 id="Servlet跳转Servlet"><a href="#Servlet跳转Servlet" class="headerlink" title="Servlet跳转Servlet"></a>Servlet跳转Servlet</h4><ul>
+<li><code>request.getRequestDispatcher(&quot;Servlet&quot;).forward(request, response);</code>（内部跳转） </li>
+<li><code>response.sendRedirect(&quot;Servlet&quot;);</code>(请求重定向) </li>
+</ul>
+<h4 id="服务器内部转发与请求重定向的区别"><a href="#服务器内部转发与请求重定向的区别" class="headerlink" title="服务器内部转发与请求重定向的区别"></a>服务器内部转发与请求重定向的区别</h4><ol>
+<li><strong>服务器内部转发是一次请求，一次响应<br>请求重定向是两次请求，两次响应</strong></li>
+<li>服务器内部转发只能在同一个服务器之间进行<br>请求重定向可以在多个服务器之间进行</li>
+<li>内部转发地址栏不会改变，用户无感知<br>请求重定向在地址栏就可以看到</li>
+<li><a href="http://blog.csdn.net/getstudymessages/article/details/6230325" target="_blank" rel="noopener">详细解析</a></li>
+</ol>
+<h3 id="Jsp的内置对象"><a href="#Jsp的内置对象" class="headerlink" title="Jsp的内置对象"></a>Jsp的内置对象</h3><ul>
+<li>jsp 九大内置对象和其作用详解 <a href="http://www.cnblogs.com/stanljj/p/4117980.html" target="_blank" rel="noopener">参考博客</a><ol>
+<li><code>request</code>对象<br>request 对象是 javax.servlet.httpServletRequest类型的对象。 该对象代表了客户端的请求信息，主要用于接受通过HTTP协议传送到服务器的数据。（包括头信息、系统信息、请求方式以及请求参数等）。request对象的作用域为一次请求。</li>
+<li><code>response</code>对象<br>response 代表的是对客户端的响应，主要是将JSP容器处理过的对象传回到客户端。response对象也具有作用域，它只在JSP页面内有效。</li>
+<li><code>session</code>对象<br>session 对象是由服务器自动创建的与用户请求相关的对象。服务器为每个用户都生成一个session对象，用于保存该用户的信息，跟踪用户的操作状态。session对象内部使用Map类来保存数据，因此保存数据的格式为 “Key/value”。 session对象的value可以是复杂的对象类型，而不仅仅局限于字符串类型。</li>
+<li><code>application</code>对象<br>application 对象可将信息保存在服务器中，直到服务器关闭，否则application对象中保存的信息会在整个应用中都有效。与session对象相比，application对象生命周期更长，类似于系统的“全局变量”。</li>
+<li><code>out</code> 对象<br>out 对象用于在Web浏览器内输出信息，并且管理应用服务器上的输出缓冲区。在使用 out 对象输出数据时，可以对数据缓冲区进行操作，及时清除缓冲区中的残余数据，为其他的输出让出缓冲空间。待数据输出完毕后，要及时关闭输出流。</li>
+<li><code>pageContext</code> 对象<br>pageContext 对象的作用是取得任何范围的参数，通过它可以获取 JSP页面的out、request、reponse、session、application 等对象。pageContext对象的创建和初始化都是由容器来完成的，在JSP页面中可以直接使用 pageContext对象。</li>
+<li><code>config</code> 对象<br>config 对象的主要作用是取得服务器的配置信息。通过 pageConext对象的 getServletConfig() 方法可以获取一个config对象。当一个Servlet 初始化时，容器把某些信息通过 config对象传递给这个 Servlet。 开发者可以在web.xml 文件中为应用程序环境中的Servlet程序和JSP页面提供初始化参数。</li>
+<li><code>page</code> 对象<br>page 对象代表JSP本身，只有在JSP页面内才是合法的。 page隐含对象本质上包含当前 Servlet接口引用的变量，类似于Java编程中的 this 指针。</li>
+<li><code>exception</code> 对象<br>exception 对象的作用是显示异常信息，只有在包含 isErrorPage=”true” 的页面中才可以被使用，在一般的JSP页面中使用该对象将无法编译JSP文件。excepation对象和Java的所有对象一样，都具有系统提供的继承结构。exception 对象几乎定义了所有异常情况。在Java程序中，可以使用try/catch关键字来处理异常情况； 如果在JSP页面中出现没有捕获到的异常，就会生成 exception 对象，并把 exception 对象传送到在page指令中设定的错误页面中，然后在错误页面中处理相应的 exception 对象。</li>
+</ol>
+</li>
+</ul>
+<h3 id="EL表达式与JSTL"><a href="#EL表达式与JSTL" class="headerlink" title="EL表达式与JSTL"></a>EL表达式与JSTL</h3><p>具体使用参见<a href="http://blog.csdn.net/qwerasdf123/article/details/4189889" target="_blank" rel="noopener">这里</a></p>
+<h3 id="文件的上传和下载"><a href="#文件的上传和下载" class="headerlink" title="文件的上传和下载"></a>文件的上传和下载</h3><p>####文件的下载</p>
+<ul>
+<li>通过超链接下载<br>  弊端是浏览器识别的文件类型会默认打开该文件而不是下载</li>
+</ul>
+<p>JSP代码示例:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--下载服务器端download目录下的ks5.txt文件，但是由于浏览器可以识别txt等常用文件格式，会默认打开，一般不推荐使用此种方法--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"download/ks5.txt"</span>&gt;</span>文本<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>使用Servlet请求来下载</li>
+</ul>
+<p>JSP代码示例<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"DownloadServlet?filename=1.jpg"</span>&gt;</span>下载图片<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>Servlet代码示例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取请求文件名</span></span><br><span class="line">String filename = request.getParameter(<span class="string">"filename"</span>);</span><br><span class="line"><span class="comment">//设置文件MIME类型  MIME（多功能网际邮件扩充协议）</span></span><br><span class="line"><span class="comment">//此处出错会导致文件没有类型 作用相当于识别文件类型 设置此选项用于标识传输文件的文件类型</span></span><br><span class="line">response.setContentType(getServletContext().getMimeType(filename));</span><br><span class="line">response.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename="</span>+ filename);</span><br><span class="line"><span class="comment">// 获取文件的绝对路径</span></span><br><span class="line">String filePath = getServletContext().getRealPath(<span class="string">"/dow/"</span> + filename);</span><br><span class="line"><span class="comment">// 使用缓冲区读取文件为字节流</span></span><br><span class="line">BufferedInputStream bis = <span class="keyword">new</span> BufferedInputStream(<span class="keyword">new</span> FileInputStream(filePath));</span><br><span class="line"><span class="comment">//此处注意流的内容</span></span><br><span class="line">BufferedOutputStream bos = <span class="keyword">new</span> BufferedOutputStream(response.getOutputStream());</span><br><span class="line"><span class="comment">//最后正常读写流</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="使用Part实现文件的上传"><a href="#使用Part实现文件的上传" class="headerlink" title="使用Part实现文件的上传"></a>使用Part实现文件的上传</h4><p>Servlet代码示例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先一步需为Servrlet添加注解</span></span><br><span class="line"><span class="meta">@MultipartConfig</span></span><br><span class="line">该注解主要是为了辅助 Servlet <span class="number">3.0</span> 中 HttpServletRequest 提供的对上传文件的支持。</span><br><span class="line">该注解标注在 Servlet 上面，以表示该 Servlet 希望处理的请求的 MIME 类型是 multipart/form-data</span><br><span class="line"><span class="comment">// 得到文件请求头部</span></span><br><span class="line">Part part = request.getPart(<span class="string">"file"</span>);</span><br><span class="line"><span class="comment">// 得到头部请求消息 格式为： 文件上传类型； name标识 filename=“文件名.文件类型”</span></span><br><span class="line">String content = part.getHeader(<span class="string">"Content-Disposition"</span>);</span><br><span class="line"><span class="comment">// 切割出完整的文件名（需去除“”）</span></span><br><span class="line">String fileName = content.substring(content.lastIndexOf(<span class="string">"="</span>) + <span class="number">2</span>,content.length() - <span class="number">1</span>);</span><br><span class="line"><span class="comment">// 对文件名做随机处理(防止重名文件)</span></span><br><span class="line"><span class="comment">// 前半部分的内容为随机生成一串16位字符，后半部分的内容为获取从“.”开始之后的内容用于组成新的文件名</span></span><br><span class="line">String RodFileName = UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">"&amp;"</span>)+ fileName.substring(fileName.lastIndexOf(<span class="string">"."</span>));</span><br><span class="line"><span class="comment">// 设置上传路径</span></span><br><span class="line">String Path = request.getServletContext().getRealPath(<span class="string">"/dow"</span>);</span><br><span class="line"><span class="comment">// 使用part写入文件</span></span><br><span class="line">part.write(Path + <span class="string">"/"</span> + RodFileName);</span><br><span class="line">response.getWriter().write(<span class="string">"&lt;h1&gt;文件上传成功&lt;h1&gt;"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>Jsp代码示例</p>
+<blockquote>
+<p>enctype=”multipart/form-data”的意思，是设置表单的MIME编码。默认情况，这个编码格式是application/x-www-form-urlencoded，不能用于文件上传；只有使用了multipart/form-data，才能完整的传递文件数据，enctype=”multipart/form-data”是上传二进制数据</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span> =<span class="string">"DownloadServlet"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- name="file"用于标识请求 --&gt;</span></span><br><span class="line">		请选择上传文件<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"上传"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Cookie与Session"><a href="#Cookie与Session" class="headerlink" title="Cookie与Session"></a><font color="red">Cookie与Session</font></h3><ul>
+<li>具体可参考<a href="http://blog.csdn.net/fangaoxin/article/details/6952954/" target="_blank" rel="noopener">这里</a></li>
+<li>什么是会话</li>
+<li>管理HTTP协议会话：Cookie和Session<ul>
+<li>Cookie：将用户相关数据保存在客户端，用户每次访问该站点会自动携带cookie数据（类似于服务器发给客户端的通行证）</li>
+<li>Session：将用户数据保存在服务器端，为每一个客户端生成一个独立的Session数据对象，通过Session对象的唯一编号，区分对应的客户端数据</li>
+</ul>
+</li>
+</ul>
+<h4 id="使用Cookie可以实现登陆时间的记录"><a href="#使用Cookie可以实现登陆时间的记录" class="headerlink" title="使用Cookie可以实现登陆时间的记录"></a><font color="red">使用Cookie可以实现登陆时间的记录</font></h4><ul>
+<li><p>具体步骤：</p>
+<ol>
+<li>通过服务器端向客户端写cookie<br> Cookie cookie = new Cookie(name,value);<br> response.addCookie(cookie);</li>
+<li>当客户端存在cookie之后，以后每次请求自动携带 HTTP协议请求头信息        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获得客户端所有cookie		</span></span><br><span class="line">Cookie[] cookies = request.getCookies();</span><br><span class="line"><span class="keyword">if</span>(cookies==<span class="keyword">null</span>)&#123;&#125;  判断cookie是否存在</span><br><span class="line">遍历cookie获得需要信息</span><br><span class="line"><span class="keyword">for</span> (Cookie cookie : cookies) &#123;</span><br><span class="line">	<span class="keyword">if</span> (cookie.getName().equals(name)) &#123;</span><br><span class="line">		<span class="comment">//逻辑代码                 </span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>Cookie和Session的生命周期 </p>
+<ul>
+<li>Cookie生命周期<ul>
+<li>创建：<br><code>Cookie cookie = new Cookie(name,value); response.add(cookie);</code></li>
+<li>销毁：会话cookie会在浏览器关闭时销毁，持久cookie会在cookie过期(MaxAge)后销毁</li>
+</ul>
+</li>
+<li>Session生命周期<ul>
+<li>创建：<br><code>request.getSession()</code></li>
+<li>销毁的三种方式：<br>  1.服务器关闭时销毁<br>  2.session过期时销毁<br>  3.手动调用session.invalidate(会清空所有session)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>设置Session的过期时间</p>
+<ol>
+<li>在web.xml文件中设置Session的过期时间</li>
+<li>调用Session对象的setMaxInactiveInterval(int interval) 单位是秒<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">session-config</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">session-timeout</span>&gt;</span>30<span class="tag">&lt;/<span class="name">session-timeout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">session-config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HttpSession session = request.getSession();</span><br><span class="line"><span class="comment">//设置session过期时间1小时</span></span><br><span class="line">session.setMaxInactiveInterval(<span class="number">60</span>*<span class="number">60</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h3><ol>
+<li><p>原理<br>简单来说就是通过XMLHttpRequest对象来向服务器发送异步请求，从服务器获得数据，然后使用JavaScript来操作DOM对象来更新页面。</p>
+<ul>
+<li>核心对象<br>XMLHttpRequest对象</li>
+<li>属性<ul>
+<li><code>onreadystatechange</code> 每次状态改变所触发时间的时间处理程序</li>
+<li><code>responseText</code>从服务器进程返回数据的字符串形式</li>
+<li><code>responseXML</code>从服务器进程返回的DOM兼容的文档数据对象</li>
+<li><code>status</code>从服务器返回的数字代码。（404  500  200）</li>
+<li><code>sataus Text</code> 伴随状态码的字符串信息</li>
+<li><code>readyState</code> 对象状态值<ul>
+<li>0（未初始化）对象已建立，但是尚未初始化，也就是还没有调用<code>open</code>方法</li>
+<li>1（初始化）对象已建立，尚未调用<code>send</code>方法</li>
+<li>2 （发送数据）<code>send</code>方法已调用，但是当前的状态及http头未知</li>
+<li>3 （数据传送中）已接收部分数据，因为响应及http头不全，这时通过responBody和responseText获取部分数据会出错</li>
+<li>4 （数据接收完毕）此时可以通过responseXML和responseText获取完整的回应数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用ajax-servlet</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 获取用户输入</span></span><br><span class="line"><span class="keyword">var</span> username=<span class="built_in">document</span>.getElementById(<span class="string">"username"</span>).value;</span><br><span class="line"><span class="comment">//2. 创建XMLHttpRequset对象</span></span><br><span class="line"><span class="keyword">var</span> xmlhttp;</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span></span><br><span class="line">xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"> <span class="comment">// IE6, IE5 浏览器执行代码</span></span><br><span class="line">xmlhttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3. 向服务器发送请求</span></span><br><span class="line">xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"链接"</span>,<span class="literal">true</span>);</span><br><span class="line">xmlHttp.onreadystatechange=callback;</span><br><span class="line">xmlhttp.send();</span><br><span class="line"><span class="comment">//4. 设置回调函数</span></span><br><span class="line">在回调函数中判断<span class="string">`readyState`</span>响应码是否正常（<span class="number">4</span>为正常）以及<span class="string">`sataus`</span>状态码是否正常（<span class="number">200</span>为正常），正常后可解析响应并做逻辑处理</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="JQuery"><a href="#JQuery" class="headerlink" title="JQuery"></a>JQuery</h3><blockquote>
+<p>jQuery是一个兼容多浏览器的javascript库（函数库），可以简化查询DOM对象、处理事件、制作动画、处理Ajax交互过程。</p>
+</blockquote>
+<ul>
+<li><p>JQuery的引用方式</p>
+<ol>
+<li>引用本地JQuery库<br><code>&lt;script type=“text/javascript” src=“jquery.js”&gt;&lt;/script&gt;</code></li>
+<li>引入在线JQuery库<br><code>&lt;script src=&quot;http://code.jquery.com/jquery-latest.js&quot;&gt;&lt;/script&gt;</code></li>
+</ol>
+</li>
+<li><p>JQuery的使用<br><code>$(function(){});</code>相当于：<code>$(document.ready(function(){}));</code></p>
+</li>
+<li><p>JQuery的包装集</p>
+<blockquote>
+<p>在jQuery中将所有的对象，无论是一个还是一组，都封装成一个jQuery包装集，即集合。也就是说，$()的返回结果都是集合，不是单个对象。<br>例如：获取包含一个元素的jQuery包装集<br><code>var jQueryObject = $(&quot;id&quot;);</code><br>虽然，通过id获得的是一个元素对象，但是依然以集合的方式返回，只不过，集合中只有一个元素而已`</p>
+</blockquote>
+</li>
+<li><p>JQuery的包装集与DOM对象的互换</p>
+<ul>
+<li>JQuery包装集转DOM对象<br><code>var domObject = $(“#testDiv”)[0];</code>或者<code>var domObject = $(“#testDiv”).get(0);</code></li>
+<li>DOM对象转JQuery包装集<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">"testDiv"</span>);</span><br><span class="line"><span class="keyword">var</span> domToJQueryObject = $(div);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>JQuery获取内容和属性</p>
+<ul>
+<li>用于操作DOM的JQuery的方法<ul>
+<li>设置或返回所选元素的文本内容<code>text()</code></li>
+<li>设置或返回所选元素的内容（包括 HTML标签）<code>html()</code></li>
+<li>设置或返回表单字段的值<code>val()</code><ul>
+<li>设置或返回属性值<code>attr()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>JQuery的选择器<br>   点击<a href="http://www.cnblogs.com/onlys/articles/jQuery.html" target="_blank" rel="noopener">这里</a></p>
+</li>
+<li>JQuery的事件<br>  常用事件：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>描述</th>
+<th>参数</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>click</td>
+<td>点击事件</td>
+<td>function</td>
+<td>无</td>
+</tr>
+<tr>
+<td>one</td>
+<td>一次执行后销毁</td>
+<td>‘click’,function(){ }</td>
+<td>只会执行一次，然后销毁事件</td>
+</tr>
+<tr>
+<td>hide</td>
+<td>隐藏元素</td>
+<td>speed,callback</td>
+<td>可选的 speed 参数规定隐藏/显示的速度，可以取以下值：”slow”、”fast” 或毫秒。可选的 callback 参数是隐藏或显示完成后所执行的函数名称。</td>
+</tr>
+<tr>
+<td>show</td>
+<td>显示元素</td>
+<td>speed,callback</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>toggle</td>
+<td>切换</td>
+<td>speed,callback</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>fadeIn</td>
+<td>淡入</td>
+<td>speed,callback</td>
+<td>用于淡入已隐藏的元素</td>
+</tr>
+<tr>
+<td>fadeOut</td>
+<td>淡出</td>
+<td>speed,callback</td>
+<td>用于淡出可见元素</td>
+</tr>
+<tr>
+<td>fadeToggle</td>
+<td>淡入或者淡出</td>
+<td>speed,callback</td>
+<td>在 fadeIn() 与 fadeOut() 方法之间进行切换。</td>
+</tr>
+<tr>
+<td>fadeTo</td>
+<td>透明度设置</td>
+<td>speed,opacity,callback</td>
+<td>opacity参数参数将淡入淡出效果设置为给定的不透明度（值介于 0 与 1 之间）</td>
+</tr>
+<tr>
+<td>slideDown()</td>
+<td>滑动</td>
+<td>speed,callback</td>
+<td>用于向下滑动元素</td>
+</tr>
+<tr>
+<td>slideUp()</td>
+<td>滑动</td>
+<td>speed,callback</td>
+<td>用于向上滑动元素</td>
+</tr>
+<tr>
+<td>slideToggle()</td>
+<td>滑动</td>
+<td>speed,callback</td>
+<td>在 slideDown() 与 slideUp() 方法之间进行切换</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>JQuery动画<blockquote>
+<p>默认地，所有 HTML 元素都有一个静态位置，且无法移动。<br>如需对位置进行操作，要首先把元素的<code>position</code> 属性设置为 <code>relative</code>、<code>fixed</code> 或 <code>absolute</code>！</p>
+</blockquote>
+</li>
+</ul>
+<p>使用 animate() 方法来操作所有 CSS 属性</p>
+<p><font color="red">需注意：当使用 animate() 时，必须使用 Camel 标记法书写所有的属性名，比如，必须使用 paddingLeft 而不是 padding-left，使用 marginRight 而不是 margin-right，等等。</font><br>animate() 方法用于创建自定义动画。</p>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2018/09/17/Hibernate/"></a><a class="next" href="/2018/09/17/MySQL/"></a></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://yoursite.com"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/疑难杂症/">疑难杂症</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/设计模式/">设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/其他知识点/">其他知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/反射及反射的应用/">反射及反射的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/SpringData/">SpringData</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/solr/">solr</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/Shiro/">Shiro</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/Linux/">Linux</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/DispatchServlet/">DispatchServlet</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">So ugly.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>

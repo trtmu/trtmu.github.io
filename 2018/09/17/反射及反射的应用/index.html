@@ -1,0 +1,114 @@
+<!DOCTYPE html><html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Madman's"><title> | So ugly</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">So ugly</h1><a id="logo" href="/.">So ugly</a><p class="description">2018/09/17</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a><a href="/atom.xml"><i class="fa fa-rss"> RSS</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-meta">Sep 17, 2018<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><h2 id="Java反射"><a href="#Java反射" class="headerlink" title="Java反射"></a>Java反射</h2><ul>
+<li>加载类对象的方式(字节码对象)<ul>
+<li><code>Class cls =Class.forName(&quot;类的全限定名&quot;)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="Java反射应用"><a href="#Java反射应用" class="headerlink" title="Java反射应用"></a>Java反射应用</h3><ul>
+<li>Java反射的应用<ol>
+<li>xml自定义DTD和解析</li>
+<li>注解的申明,使用和解析</li>
+</ol>
+</li>
+</ul>
+<h4 id="xml的DTD定义和xml的解析"><a href="#xml的DTD定义和xml的解析" class="headerlink" title="xml的DTD定义和xml的解析"></a>xml的DTD定义和xml的解析</h4><h5 id="DTD解析"><a href="#DTD解析" class="headerlink" title="DTD解析"></a>DTD解析</h5><ul>
+<li>DTD文件中的节点定义和属性定义</li>
+<li>DTD文件的作用:规范xml文件的节点或标签以及标签中的属性和子标签</li>
+</ul>
+<h5 id="xml解析"><a href="#xml解析" class="headerlink" title="xml解析"></a>xml解析</h5><ul>
+<li>解析的几种方式<ul>
+<li>SAX(基于事件,不可终止解析,基于模板设计模式)</li>
+<li>PULL(基于事件,可终止解析,基于循环)</li>
+<li>Dom/Dom4j(基于节点)</li>
+</ul>
+</li>
+<li><p>SAX解析中核心的类及方法:</p>
+<ul>
+<li><code>SAXParserFactory</code> 解析器工厂类</li>
+<li><code>SAXParser</code> 解析器</li>
+<li><code>SAXParser.parse(Source,DefaultHandler)</code><blockquote>
+<p><code>Sourse</code> 是一个流,<code>DefaultHandler</code> 可以认为是解析过程中的事件回调接口</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>XML解析事件</p>
+<ul>
+<li>文档开始:startDocument()</li>
+<li>文档结束:endDocumemt()</li>
+<li>标签开始:`startElement（<pre><code>String uri,
+String localName,
+String qName,//标签名
+Attributesatts att)`//标签属性集
+</code></pre></li>
+<li>标签结束:<code>endElement(String uri,String localName,String qName)</code></li>
+<li>文本标签:<code>characters(char[] ch,int start,int length)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="DTD文件中使用的声明标签"><a href="#DTD文件中使用的声明标签" class="headerlink" title="DTD文件中使用的声明标签:"></a>DTD文件中使用的声明标签:</h4><ul>
+<li><code>&lt;!ELEMENT 节点名(节点类型或子节点元素)</code></li>
+<li><code>&lt;!ATTLIST 节点名  属性名  数据类型  验证类型</code></li>
+<li>数据类型: <ul>
+<li><code>REQUIRED</code> 约束唯一性;</li>
+<li><code>CDTATA</code> 约束类型为字符类型(可以包含字母和数字);</li>
+<li>常量集,以’|’分割</li>
+</ul>
+</li>
+<li>验证类型:<ul>
+<li>#REQUIRED 必须指定的属性</li>
+<li>#IMPLIED  可选</li>
+<li>#FIXED VALUE 固定值</li>
+</ul>
+</li>
+</ul>
+<h4 id="在XMl文件中如何引入DTD文件"><a href="#在XMl文件中如何引入DTD文件" class="headerlink" title="在XMl文件中如何引入DTD文件"></a>在XMl文件中如何引入DTD文件</h4><ul>
+<li>SYSTEM系统文件<br><code>&lt;!DOCTYPE 根标签 SYSTEM &quot;.dtd文件路径&quot;&gt;</code></li>
+<li>PUBLIC网络资源<br><code>&lt;!DOCTYPE 根标签 PUBLIC &quot;ID(名字)&quot; &quot;URL地址&quot;&gt;</code></li>
+</ul>
+<h4 id="注解的声明使用和解析"><a href="#注解的声明使用和解析" class="headerlink" title="注解的声明使用和解析"></a>注解的声明使用和解析</h4><ul>
+<li><p>什么是注解(Annotation)</p>
+<blockquote>
+<p>注解:以<code>@Interface</code>声明的类称为注解类,常用注解<code>@Override</code>,<code>@Test</code>等,用于申明方法或者类或参数的额外的信息(验证,执行的方式,注入数据)</p>
+</blockquote>
+</li>
+<li><p>注解的基本语法  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//必须声明员注解(有效性,注解位置)</span><br><span class="line">public @interface Table&#123;</span><br><span class="line">    String value()//属性方法    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用的元注解</p>
+<ul>
+<li><code>@Retention(RetentionPolicy.RUNTIME\SOURCE\CLASS)</code>:注解的有效性</li>
+<li><code>@Target(ElementType.TYPE\METHOD\FIELD\...)</code>:注解可被使用的位置<ul>
+<li><code>TYPE</code>:表示类上可用</li>
+<li><code>METHOD</code>:表示方法上可用</li>
+<li><code>FIELD</code>:属性字段上可用  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用注解的注意事项</p>
+<ul>
+<li>@注解类名</li>
+<li>如果注解中的属性只存在一个,且名为value,则在设置属性值不需要写value=)(不需要指定属性名)</li>
+<li>如果注解中的属性有多个,在属性赋值时必须指定属性名,多个属性之间用逗号分隔</li>
+</ul>
+</li>
+<li><p>解析注解</p>
+<blockquote>
+<p>注解本身只是装饰,如果不解析的话没有任何意义.可以通过JAVA反射方式解析注解  </p>
+</blockquote>
+</li>
+</ul>
+<h3 id="使用反射自定义MVC框架"><a href="#使用反射自定义MVC框架" class="headerlink" title="使用反射自定义MVC框架"></a>使用反射自定义MVC框架</h3><h4 id="核心控制器的实现-DispatcherServlet"><a href="#核心控制器的实现-DispatcherServlet" class="headerlink" title="核心控制器的实现(DispatcherServlet)"></a>核心控制器的实现(DispatcherServlet)</h4><ul>
+<li>功能<ul>
+<li>获取请求的路径</li>
+<li>解析控制器配置中心</li>
+<li>获取请求对应的处理类</li>
+<li>执行处理类方法,实现业务逻辑</li>
+<li>根据处理的结果响应给页面</li>
+</ul>
+</li>
+</ul>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2018/09/17/其他知识点/"></a><a class="next" href="/2018/09/17/SpringData/"></a></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://yoursite.com"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/疑难杂症/">疑难杂症</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/设计模式/">设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/其他知识点/">其他知识点</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/反射及反射的应用/">反射及反射的应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/SpringData/">SpringData</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/solr/">solr</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/Shiro/">Shiro</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/Linux/">Linux</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/DispatchServlet/">DispatchServlet</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">So ugly.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>
