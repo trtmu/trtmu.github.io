@@ -2,17 +2,6 @@
  	font-family: Microsoft Yahei!important;
  }
 
-body { 
-     background-color: #efefef;
-     background-image: url(https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture);
-     background-repeat: no-repeat; 
-     background-attachment: fixed; 
-     background-position: center 0; 
-     background-size: cover; 
-  }
-
-
-
 .clearfix:after,.clearfix:before {
 	content: "";
 	display: table
@@ -771,7 +760,9 @@ body,button,input,select,textarea {
 
 body {
 	overflow-y: hidden;
-	background: #eaeaea
+    background-image: url(https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/background.jpg)!important;
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
 }
 
 #container,body,html {
@@ -2042,7 +2033,7 @@ pre .css~* .id,pre .id {
 	border: 1px solid #ddd;
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #fff;
-	background: #fff;
+	background: #ffffff61;
 	transition: all .2s ease-in
 }
 
