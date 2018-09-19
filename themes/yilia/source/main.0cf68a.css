@@ -811,7 +811,7 @@ body {
 }
 
 .left-col {
-	background: #fff;
+	background: #b5b0b07a;
 	width: 300px;
 	position: fixed;
 	opacity: 1;
@@ -849,7 +849,7 @@ body {
 
 .left-col #header .header-subtitle {
 	text-align: center;
-	color: #999;
+	color: #696969;
 	font-size: 14px;
 	line-height: 25px;
 	overflow: hidden;
