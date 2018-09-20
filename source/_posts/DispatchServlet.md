@@ -1,3 +1,9 @@
+---
+title: jsp与Servlet
+date: 2018年9月20日17:30:11
+tags:
+    - Java
+---
 ## jsp 与servlet
 
 - DispatcherServlet主要用作职责调度工作，本身主要用于控制流程，主要职责如下：
