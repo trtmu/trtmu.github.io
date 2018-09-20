@@ -84,8 +84,6 @@ deploy:
     github: https://gh_token@github.com/trtmu/trtmu.github.io.git
   branch: master
 
-
-# 怎么主页没有了??????
 jsonContent:
     meta: false
     pages: false
