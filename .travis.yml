@@ -22,11 +22,14 @@ before_install:
 install:
   - npm install
   - npm install hexo-deployer-git --save
+  - npm install gulp -g
+  - npm install gulp-minify-css gulp-uglify gulp-htmlmin gulp-htmlclean gulp --save
 
 # 执行清缓存，生成网页操作
 script:
   - hexo clean
   - hexo generate
+  - gulp build 
 
 # 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署
 after_script:
