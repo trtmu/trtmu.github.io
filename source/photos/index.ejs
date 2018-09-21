@@ -11,6 +11,8 @@ comments: "false"
 <head>
 	<script src="../images.js"></script>
 	<script src="../cos.js"></script>
+    <script src="../tips.js"></script>
+    <link href="../tips.css" rel="stylesheet">
     <style type="text/css">
         .flex-images { overflow: hidden; }
         .flex-images .item { float: left; margin: 4px; border: 1px solid #eee; box-sizing: content-box; overflow: hidden; position: relative;  }
@@ -19,7 +21,15 @@ comments: "false"
     <script>
         $(function () {
             arrayImg(checkJson(getXmlDocumentByFilePath()));
+             $("#trtmu").hover(function(){
+              Dialog.init('<img src="https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/wx_add.jpg" width="100%">',3000);
+            });
+             $("#trtmu").click(function(){
+              Dialog.init('<img src="https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/wx_add.jpg" width="100%">',3000);
+            });
         });
+
+
     </script>
 </head>
 <body>
@@ -27,6 +37,15 @@ comments: "false"
     <div id="main" class="main clearfix">
 
     </div>
-</div>
+    </div style="position:fixed; bottom:0;">
+        <h5 style="text-align:center;">
+        本站部分文字、图片来源于网络，均为转载，版权属于原作者或网站。如有版权疑问，请与<label id="trtmu" style="color:red;" >站长</label>联系。
+        </h5>
+    <div>
+<div>
+
+
+
+
 </body>
 </html>

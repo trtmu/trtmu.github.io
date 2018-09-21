@@ -17,7 +17,20 @@
       <% } else { %>
         <%- post.content %>
       <% } %>
-
+      <% if (post.hasBQ){ %>
+        <blockquote style="border-left:5px solid red;">
+          <p>
+            <b>
+            本文版权归  <a href="https://trtmu.cn" style="color:#51aded;"><%= config.author || config.title %></a>  所有
+            <br>
+            欢迎转载，但未经作者同意必须在文章页面给出原文链接
+            <br>否则保留追究法律责任的权利
+            <p>我认真的哦,没有在开玩笑的哦!敲凶的!!!</p>
+            </b>
+           
+          </p>
+        </blockquote>
+      <% } %>
       <% if ((theme.reward_type === 2 || (theme.reward_type === 1 && post.reward)) && !index){ %>
         <div class="page-reward">
           <a href="javascript:;" class="page-reward-btn tooltip-top">
