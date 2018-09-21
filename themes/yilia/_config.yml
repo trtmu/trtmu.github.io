@@ -7,7 +7,7 @@ menu:
 
 # SubNav
 subnav:
-  # github: "#"
+  github: "https://github.com/trtmu"
   # weibo: "#"
   # rss: "#"
   # zhihu: "#"
@@ -18,7 +18,7 @@ subnav:
   # segmentfault: "#"
   # bilibili: "#"
   # acfun: "#"
-  # mail: "mailto:litten225@qq.com"
+  mail: "mailto:trtmu@foxmail.com"
   # facebook: "#"
   # google: "#"
   # twitter: "#"
@@ -54,7 +54,7 @@ weixin: https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img
 
 # 目录
 # 目录设定：0-不显示目录； 1-文章对应的md文件里有toc:true属性，才有目录； 2-所有文章均显示目录
-toc: 1
+toc: 0
 # 根据自己的习惯来设置，如果你的目录标题习惯有标号，置为true即可隐藏hexo重复的序号；否则置为false
 toc_hide_index: true
 # 目录为空时的提示
@@ -72,7 +72,7 @@ favicon: https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_im
 avatar: https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/headPortrait.png
 
 #是否开启分享
-share_jia: true
+share_jia: false
 
 #评论：1、多说；2、网易云跟帖；3、畅言；4、Disqus；5、Gitment
 #不需要使用某项，直接设置值为false，或注释掉
