@@ -61,7 +61,7 @@ toc_hide_index: true
 toc_empty_wording: '目录? 不存在的…'
 
 # 是否有快速回到顶部的按钮
-top: false
+top: true
 
 # Miscellaneous
 baidu_analytics: ''
@@ -103,12 +103,12 @@ style:
   # 头像上面的背景颜色
   header: 'rgba(142, 99, 170, 0.1)'
   # 右滑板块背景
-  slider: 'linear-gradient(200deg,#a0cfe4,#e8c37e)'
+  slider: 'linear-gradient(200deg,#24b5ee,#ba87ca)'
 
 # slider的设置
 slider:
   # 是否默认展开tags板块
-  showTags: false
+  showTags: true
 
 # 智能菜单
 # 如不需要，将该对应项置为false
