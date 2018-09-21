@@ -1,0 +1,28 @@
+---
+layout: post
+slug: "photos"
+title: "相册"
+noDate: "true"
+comments: "false"
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../images.js"></script>
+	<script src="../cos.js"></script>
+	<link rel="stylesheet" type="text/css" id="css" href="../images.css">
+    <script>
+        $(function () {
+            arrayImg(checkJson(getXmlDocumentByFilePath()));
+        });
+    </script>
+</head>
+<body>
+<div style="max-width:100%;margin:auto;padding:0 30px 30px">
+    <div id="imgItems" class="flex-images">
+
+    </div>
+</div>
+</body>
+</html>
