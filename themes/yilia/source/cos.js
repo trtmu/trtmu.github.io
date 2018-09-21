@@ -15,7 +15,9 @@ function checkJson(data) {
         var d = ccc[i].innerHTML;
         //如果是图片格式则添加至返回集合
         if (d.split('.')[1] == 'png' || d.split('.')[1] == 'jpg') {
-            imgPath.push(path + d);
+           	if(d.indexOf("blog_img")!=-1){
+           		 imgPath.push(path + d);
+           	}
         }
     }
     return imgPath;
@@ -27,11 +29,14 @@ function arrayImg(imgPath) {
         for (i in imgPath) {
             var imgsrc = imgPath[i];
             if (imgsrc != '' && imgsrc != null) {
-                imgDiv += '<div class=item data-w="600" data-h="600">';
-                imgDiv += '<img src="' + imgsrc + '"/></div>';
+               // imgDiv += '<div class=item data-w="600" data-h="600">';
+               // imgDiv += '<img src="' + imgsrc + '"/></div>';
+               imgDiv += '<div class="box"><div class="pic">';
+               imgDiv += '<img src="' + imgsrc + '"/></div></div>';
             }
         }
-        $("#imgItems").append(imgDiv);
+        // $("#imgItems").append(imgDiv);
+         $("#main").append(imgDiv);
         var link = document.createElement("link");
         link.rel = "stylesheet";
         link.type = "text/css";

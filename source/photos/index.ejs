@@ -11,7 +11,11 @@ comments: "false"
 <head>
 	<script src="../images.js"></script>
 	<script src="../cos.js"></script>
-	<link rel="stylesheet" type="text/css" id="css" href="../images.css">
+    <style type="text/css">
+        .flex-images { overflow: hidden; }
+        .flex-images .item { float: left; margin: 4px; border: 1px solid #eee; box-sizing: content-box; overflow: hidden; position: relative;  }
+        .flex-images .item img { width: 100%; height: 100%; }
+    </style>
     <script>
         $(function () {
             arrayImg(checkJson(getXmlDocumentByFilePath()));
@@ -20,7 +24,7 @@ comments: "false"
 </head>
 <body>
 <div style="max-width:100%;margin:auto;padding:0 30px 30px">
-    <div id="imgItems" class="flex-images">
+    <div id="main" class="main clearfix">
 
     </div>
 </div>
