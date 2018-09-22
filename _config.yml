@@ -12,8 +12,8 @@ language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://trtmu.cn
+#
+url: https://trtmu.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -102,3 +102,5 @@ jsonContent:
       excerpt: false
       categories: false
       tags: true
+# 版权信息中的原文链接前缀
+BQURL: https://trtmu.cn

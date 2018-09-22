@@ -897,7 +897,7 @@ body {
 
 .left-col #header .profilepic {
 	display: block;
-	border: 5px solid #fff;
+	
 	border-radius: 300px;
 	width: 128px;
 	height: 128px;
@@ -2043,7 +2043,7 @@ pre .css~* .id,pre .id {
 .article-inner h1.article-title,.article-title {
 	color: #696969;
 	margin-left: 0;
-	font-weight: 300;
+	
 	line-height: 35px;
 	margin-bottom: 20px;
 	font-size: 26px;
@@ -2083,7 +2083,7 @@ pre .css~* .id,pre .id {
 }
 
 .article-more-link a {
-	background: #4d4d4d;
+	background: #005a87;;
 	color: #fff;
 	font-size: 12px;
 	padding: 5px 8px;
@@ -2191,13 +2191,22 @@ pre .css~* .id,pre .id {
 }
 
 .article-entry li code,.article-entry p code {
-	padding: 1px 3px;
+
+	/*padding: 1px 3px;
 	margin: 0 3px;
 	background: #ddd;
 	border: 1px solid #ccc;
+	border-radius: 4px;
 	font-family: Menlo,Monaco,Andale Mono,lucida console,Courier New,monospace;
 	word-wrap: break-word;
-	font-size: 14px
+	font-size: 14px*/
+	border: 0;
+    background-color: #D6DBDF;
+    border-radius: 4px;
+    color: #0078d8;
+    font-size: 90%;
+    padding: 2px 4px;
+    white-space: nowrap;
 }
 
 .article-entry blockquote {
@@ -2206,7 +2215,7 @@ pre .css~* .id,pre .id {
 	padding: 15px 20px;
 	margin-top: 10px;
 	border-left: 5px solid #657b83;
-	background: #f6f6f6
+	background: rgba(0, 0, 0, 0)
 }
 
 .article-entry blockquote p {
@@ -4050,4 +4059,11 @@ a.pswp__share--download:hover {
 .pswp__error-msg a {
 	color: #ccc;
 	text-decoration: underline
+}
+
+/*签名档的时间居右*/
+#time {
+	float: right;
+	margin-top: 10px;
+	font-size: 15px;
 }
