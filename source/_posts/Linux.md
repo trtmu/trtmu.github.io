@@ -1,3 +1,14 @@
+---
+title: Linux知识
+date: 2018年9月22日23:12:57
+hasBQ: true
+reward: true
+comments: true
+tags:
+    - Linux
+    - 笔记
+---
+
 ### Linux
 
 #### 常用指令

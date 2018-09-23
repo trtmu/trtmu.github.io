@@ -1,3 +1,14 @@
+---
+title: Hibernate
+date: 2018年9月22日23:12:57
+hasBQ: true
+reward: true
+comments: true
+tags:
+    - Java
+    - 笔记
+    - Hibernate
+---
 
 # <center>Hibernate</center>
 

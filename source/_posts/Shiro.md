@@ -1,3 +1,16 @@
+---
+title: Shiro
+date: 2018年9月22日23:12:57
+hasBQ: true
+reward: true
+comments: true
+tags:
+    - Shiro
+    - 笔记
+    - 基础
+    - Java
+---
+
 ### Shiro
 
 > Apache Shiro 是一个强大的java安全框架,提供了<font color=red>认证,授权,加密和会话管理</font>等功能,对于任何一个应用程序,Shiro都可以提供全面的安全管理服务.  

@@ -1,3 +1,14 @@
+---
+title: Redis
+date: 2018年9月22日23:12:57
+hasBQ: true
+reward: true
+comments: true
+tags:
+    - Redis
+    - 笔记
+    - 基础
+---
 
 ### Redis(非关系型数据库)
 - 一个高性能的可基于内存亦可持久化的日志型,Key-Value数据库

@@ -1,3 +1,15 @@
+---
+title: Solr
+date: 2018年9月22日23:12:57
+hasBQ: true
+reward: true
+comments: true
+tags:
+    - Solr
+    - 笔记
+    - 基础
+    - Java
+---
 
 ## Solr概述
 
@@ -63,18 +75,6 @@
 	</env-entry>
 
 
-
-
-
-
-4.	Solr界面功能
- 
-<img src="res/solr1.png"/>
-<img src="res/solr2.png"/>
-<img src="res/solr3.png"/>
-<img src="res/solr4.png"/>
-<img src="res/solr5.png"/>
- 
  
 5.	安装中文分词器
 
