@@ -9,14 +9,29 @@ comments: "false"
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="../images.js"></script>
+    <--获取图片-->
 	<script src="../cos.js"></script>
+    <--弹出层-->
     <script src="../tips.js"></script>
+
     <link href="../tips.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
         .flex-images { overflow: hidden; }
         .flex-images .item { float: left; margin: 4px; border: 1px solid #eee; box-sizing: content-box; overflow: hidden; position: relative;  }
         .flex-images .item img { width: 100%; height: 100%; }
+        .article-entry ul li:before {
+            content: "";
+            width: 0px;
+            height: 0px;
+            border: 0px solid #999;
+            border-radius: 0px;
+            background: #aaa;
+            display: none;
+            margin-right: 0px;
+            float: left;
+            margin-top: 0px;
+        }
     </style>
     <script>
         $(function () {
@@ -33,10 +48,26 @@ comments: "false"
     </script>
 </head>
 <body>
-<div style="max-width:100%;margin:auto;padding:0 30px 30px">
-    <div id="main" class="main clearfix">
+<div style="max-width:100%;margin:auto;padding:0 30px 30px" >
+<div class="tab-content">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active">
+            <a href="#main" data-toggle="tab">壁纸</a>
+        </li>
+        <li>
+            <a href="#dcim" data-toggle="tab">随手</a>
+        </li>
+    </ul>
+</div>
 
-    </div>
+
+
+<div id="myTabContent" class="tab-content">
+   <div id="main" class="main clearfix tab-pane fade in active" >
+   </div>
+    <div class="tab-pane fade" id="dcim">测试的div</div>
+</div>
+
     </div style="position:fixed; bottom:0;">
         <h5 style="text-align:center;">
         本站部分文字、图片来源于网络，均为转载，版权属于原作者或网站。如有版权疑问，请与<label id="trtmu" style="color:red;" >站长</label>联系。

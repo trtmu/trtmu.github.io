@@ -3,6 +3,7 @@
 .flex-images .item img { width: 100%; height: 100%; }
 */
 
+/*图片瀑布流的css*/
 /**{padding:0;margin:0;} */
 .clearfix:after, 
 .clearfix:before {

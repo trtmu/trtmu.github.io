@@ -29,21 +29,24 @@ function arrayImg(imgPath) {
         for (i in imgPath) {
             var imgsrc = imgPath[i];
             if (imgsrc != '' && imgsrc != null) {
-               // imgDiv += '<div class=item data-w="600" data-h="600">';
-               // imgDiv += '<img src="' + imgsrc + '"/></div>';
                imgDiv += '<div class="box"><div class="pic">';
                imgDiv += '<img src="' + imgsrc + '"/></div></div>';
             }
         }
         // $("#imgItems").append(imgDiv);
-         $("#main").append(imgDiv);
         var link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.type = "text/css";
-        link.href = '../images.css';
-        document.getElementsByTagName("head")[0].appendChild(link);
+         link.rel = "stylesheet";
+            link.type = "text/css";
+            link.href = '../images.css';
+            var script = document.createElement('script');
+            script.src='../images.js';
+            script.type = 'text/javascript';
+            document.getElementsByTagName("head")[0].appendChild(script);
+            document.getElementsByTagName("head")[0].appendChild(link);
+          $("#main").append(imgDiv);
     } else {
         $("#imgItems").append('<h2>没有照片哦~</h2>');
     }
-    $('#imgItems').flexImages({rowHeight: 300});
+    $("#imgItems").show();
+    //$('#imgItems').flexImages({rowHeight: 300});
 }
