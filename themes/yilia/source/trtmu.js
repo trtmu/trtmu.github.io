@@ -4,7 +4,9 @@
 
 var path = 'https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/';
 $(function () {
+  //获取并生成图片
   arrayImg(checkJson());
+  //初始化弹窗
   tipPhotos();
 });
 
@@ -16,21 +18,15 @@ function tipPhotos() {
     Dialog.init('<img src="https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/wx_add.jpg" width="100%">');
   }, function () {
   });
-  //c_alert_wrap 鼠标点击别的地方自动收缩
-  /**
-   *, function () {
-    Dialog.clear();
-  }
-   */
 }
 
 
 //获取所有图片路径
 function checkJson() {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("GET", path, false);
-  xmlhttp.send();
-  var xmlDoc = xmlhttp.responseXML;
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open("GET", path, false);
+  xmlHttp.send();
+  var xmlDoc = xmlHttp.responseXML;
   var imgPath = [];
   var ccc = xmlDoc.documentElement.getElementsByTagName("Key");
   for (var i = 0; i < ccc.length; i++) {
@@ -51,25 +47,17 @@ function arrayImg(imgPath) {
   var imgDiv = '';
   if (imgPath != null) {
     for (i in imgPath) {
-      var imgsrc = imgPath[i];
-      if (imgsrc !== '' && imgsrc != null) {
+      var imgSrc = imgPath[i];
+      if (imgSrc !== '' && imgSrc != null) {
         imgDiv += '<div class="box"><div class="pic">';
-        imgDiv += '<img src="' + imgsrc + '"/></div></div>';
+        imgDiv += '<img src="' + imgSrc + '"/></div></div>';
       }
     }
     //动态添加瀑布流样式
-    var link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    link.href = '../images.css';
-    var script = document.createElement('script');
-    script.src = '../images.js';
-    script.type = 'text/javascript';
-    document.getElementsByTagName("head")[0].appendChild(script);
-    document.getElementsByTagName("head")[0].appendChild(link);
     $("#main").append(imgDiv);
   } else {
-    $("#imgItems").append('<h2>没有照片哦~</h2>');
+    $("#main").append('<h2>没有照片哦~</h2>');
   }
-  $("#imgItems").show();
+  //$('#main').flexImages({rowHeight: 300});
+  $("#main").show();
 }
