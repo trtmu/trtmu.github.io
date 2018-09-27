@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 
 # URL
-#
+# 为啥travis ci不行了又?????奇怪
 url: https://trtmu.cn
 root: /
 permalink: :year/:month/:day/:title/
