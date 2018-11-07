@@ -16,8 +16,7 @@ tags:
 ## Spring
 - Spring是一个轻量级**控制反转（IoC）**和**面向切面（aop）**的容器框架，他主要是为了解决企业应用开发的复杂性而诞生的。
 - 优点    
-
-实现了类之间松耦合的依赖关系，方便业务的扩展和维护。
+> 实现了类之间松耦合的依赖关系，方便业务的扩展和维护。
 
 - Spring的概况--Spring的核心模块
     -  核心容器（Spring Core）
@@ -61,8 +60,8 @@ tags:
     </beans>  
 ```
     
-    - 获取Spring容器中注册的Bean类对象：
-        BeanFactory类对象的getBean(“id”)方法
+- 获取Spring容器中注册的Bean类对象：
+    - BeanFactory类对象的getBean(“id”)方法
 
 #### Spring 创建对象
 - <font color=red>默认为单例模式</font>

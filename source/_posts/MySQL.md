@@ -216,10 +216,9 @@ MySQL默认一个SQL语句为一个事务.
 - 设置当前会话的隔离级别的命令 
 `set session transaction isolation level read uncommitted /read committed /repeatable read /serializable;`  
 - 事务的其他概念
->事务的实现是基于数据库的存储引擎，不同的存储引擎对事务的支持程度不一样，**MySQL中支持事务的存储引擎有innoDB和NDB。**innoDB是MySQL默认的存储引擎，默认的隔离级别是RR（repeatable read），并且在RR的隔离级别下更进一步，通过多版本并发控制（MVCC，Multiversion Concurrency Control）解决了不可重复读问题，加上间隙锁（也就是并发控制）解决幻读问题。因此innoDB的RR隔离级别其实实现了串行化级别的效果，而且保留了比较好的并发性能。
+> 事务的实现是基于数据库的存储引擎，不同的存储引擎对事务的支持程度不一样，**MySQL中支持事务的存储引擎有innoDB和NDB。**innoDB是MySQL默认的存储引擎，默认的隔离级别是RR（repeatable read），并且在RR的隔离级别下更进一步，通过多版本并发控制（MVCC，Multiversion Concurrency Control）解决了不可重复读问题，加上间隙锁（也就是并发控制）解决幻读问题。因此innoDB的RR隔离级别其实实现了串行化级别的效果，而且保留了比较好的并发性能。
 
-
->事务的隔离性是通过锁实现，而事务的原子性、一致性和持久性是通过事务日志实现。
+> 事务的隔离性是通过锁实现，而事务的原子性、一致性和持久性是通过事务日志实现。
 	事务日志通过重做（redo）日志和innoDB 存储引擎的日志缓冲（InnoDB Log Buffer）实现
 	undo log 主要为事务的回滚服务，undo log记录了数据在每个操作前的状态
 	redo log保障的是事务的持久性和一直性，而undo log保障了事务的原子性。
