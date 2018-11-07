@@ -21,6 +21,8 @@ tags:
 > 如果配置文件的文件名为hibernate.cfg.xml时,使用`new Configuration().configure().buildSessionFactory()`即可,如果要修改配置文件名,则需要将文件名作为参数用于构建SessionFactory对象:`new Configuration().configure("hibernate.xml").buildSessionFactory()`
 
 
+<!--more-->
+
 ### Hibernate
 
 ```xml

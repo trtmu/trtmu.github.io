@@ -1,6 +1,6 @@
 ---
 title: Servlet与JSP
-date: 2016年9月22日23:12:57
+date: 2018年9月22日23:12:57
 hasBQ: true
 reward: true
 comments: true
@@ -13,8 +13,6 @@ tags:
 ---
 
 # Servlet+JSP
-
-<center> ` Servlet`  `JSP` `@Trtmu`</center>
 <hr/>
 ### Servlet+Tomcat+JSP简介  
 
@@ -30,6 +28,18 @@ JSP是网站的VIEW（同时还能提供java的执行和显示结果）。使用
 
 - JSP调用Java的格式  `<%Java代码%>`   
 引用变量 `<%=name%>`   
+
+
+
+
+
+
+
+<!--more-->
+
+
+
+
 
 
 ### **Servlet的实现方式**

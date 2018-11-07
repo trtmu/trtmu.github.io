@@ -44,6 +44,10 @@ tags:
 > * 扩展名匹配 `<url-pattern>*.jsp</url-pattern>`
 > * 缺省匹配 `<url-pattern>/</url-pattern>`
 
+<!--more-->
+
+
+
 
 ### `DispatcherServlet`初始化顺序
 #### `Servlet`的生命周期

@@ -31,6 +31,12 @@ Redis是一个开源的使用ANSI C语言编写、遵守BSD协议、支持网络
 - redis中关于有序集合(sort set)的操作详见[这里](http://www.runoob.com/redis/redis-sorted-sets.html) 
 
 
+
+<!--more-->
+
+
+
+
 ### redis配置
 > redis配置是在redis安装目录下的redis.conf文件,可以通过CONFIG命令查看或配置
 

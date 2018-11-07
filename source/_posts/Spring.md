@@ -41,6 +41,18 @@ tags:
 > `ApplicationContext`面向使用Spring框架的开发者，几乎所有的应用场合直接使用ApplicationContext而非底层的BeanFactory
 > 无论使用何种方式，配置文件时相同 
 
+
+
+
+
+
+<!--more-->
+
+
+
+
+
+
 ### Spring的使用
 - 对于MVC分层思想，在Spring中可以
 

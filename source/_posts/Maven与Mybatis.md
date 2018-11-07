@@ -37,6 +37,12 @@ src/test/java 存放的是测试的源代码
 > 以上文件目录在发布时，不会在classes目录下创建，仅有源码资源包  
 > Eclispe 配置 maven时，可以通过配置`Dependencies`来快速引入jar包，步骤：window-->show view-->other-->搜索maven--> Maven repositories-->Rebuild Index
 
+
+
+
+<!--more-->
+
+
 ## Mybatis
 - 概念   
 Mybatis是基于ibatis的，实现了ORM（对象关系映射）的功能，但不是完全实现。主要体现在只对查询结果进行关系映射，增删改查等语句必须自己写。另外实现了ORM框架有Hibernate、JPA。  

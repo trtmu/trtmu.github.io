@@ -28,6 +28,13 @@ tags:
 - 取消服务开机启动  
     - `systemctl disable nginx.service`  
 
+
+
+
+
+<!--more-->
+
+
 #### linux常用命令
 - 一、文件处理命令
 `cd /home` 进入 ‘/ home’ 目录’ 

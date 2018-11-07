@@ -15,6 +15,10 @@ tags:
 
 > SpringData是spring出品的一种轻量级的持久层解决方案,提供了强大且轻量的持久层解决方案,SpringData使用Repository作为根接口,该接口负责管理域类及域类的id类型作为参数类型,这个接口主要作为标记接口来工作,常使用它的子接口CrudRepository来实现复杂的Crud操作.
 
+
+<!--more-->
+
+
 ``` java
 public interface CrudRepository<T, ID extends Serializable>
   extends Repository<T, ID> {

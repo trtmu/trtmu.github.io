@@ -34,6 +34,12 @@ tags:
 >     该目录中包括一个solr.war，该war可作为solr的运行实例工程。
 > licenses：solr相关的一些许可信息
 
+
+
+<!--more-->
+
+
+
 ### 3.	Solr的安装及配置
 
 - 3.1 运行环境

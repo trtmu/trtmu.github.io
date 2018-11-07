@@ -16,6 +16,8 @@ tags:
 > Apache Shiro 是一个强大的java安全框架,提供了<font color=red>认证,授权,加密和会话管理</font>等功能,对于任何一个应用程序,Shiro都可以提供全面的安全管理服务.  
 > 关于shiro的所有介绍请查看[这里](https://www.w3cschool.cn/shiro/)
 
+<!--more-->
+
 #### Shiro的核心对象
 - Subject：是Shiro对外提供的一个"门面",外部都直接调用该对象,Subject会调用SecurityManager来实现相应功能；
 - SecurityManager：SecurityManager(安全管理器)是Shiro的核心,负责与Shiro的其他后端组件(Realm)行交互并将处理返回给Subject对象,类似于SpringMvc中的DispatcherServlet 所有具体的交互都通过 SecurityManager 进行控制；它管理着所有 Subject、且负责进行认证和授权、及会话、缓存的管理。
