@@ -80,7 +80,6 @@ theme: yilia
 deploy:
   type: git
   repo: 
-    gitcafe: https://trtmu:coding_token@git.coding.net/trtmu/trtmu.git
     github: https://gh_token@github.com/trtmu/trtmu.github.io.git
   branch: master
 
