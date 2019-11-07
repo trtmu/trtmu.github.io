@@ -7,3 +7,4 @@ public/
 .deploy*/
 .git
 .idea/
+/package-lock.json
