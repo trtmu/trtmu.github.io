@@ -14,7 +14,7 @@ timezone: Asia/Shanghai
 
 # URL
 url: https://trtmu.cn
-root: /blog
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
