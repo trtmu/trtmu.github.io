@@ -1,4 +1,4 @@
- * { 
+ * {
  	font-family: Microsoft Yahei!important;
  }
 
@@ -760,9 +760,10 @@ body,button,input,select,textarea {
 
 body {
 	overflow-y: hidden;
-    background-image: url(https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/background.jpg)!important;
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
+  background: #eaeaea;
+    /*background-image: url(https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/background.jpg)!important;*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #container,body,html {
@@ -811,7 +812,7 @@ body {
 }
 
 .left-col {
-	background: #b5b0b07a;
+	background: #fff;
 	width: 300px;
 	position: fixed;
 	opacity: 1;
@@ -897,7 +898,7 @@ body {
 
 .left-col #header .profilepic {
 	display: block;
-	
+  border: 2px solid #272822;
 	border-radius: 300px;
 	width: 128px;
 	height: 128px;
@@ -2032,7 +2033,7 @@ pre .css~* .id,pre .id {
 	border: 1px solid #ddd;
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #fff;
-	background: #ffffff61;
+	background: #fff;
 	transition: all .2s ease-in
 }
 
@@ -2043,7 +2044,7 @@ pre .css~* .id,pre .id {
 .article-inner h1.article-title,.article-title {
 	color: #696969;
 	margin-left: 0;
-	
+
 	line-height: 35px;
 	margin-bottom: 20px;
 	font-size: 26px;
@@ -3299,7 +3300,7 @@ pre .css~* .id,pre .id {
 		position: absolute;
 		width: 100%;
 		z-index: 2;
-		background: #4d4d4d
+		/*background: #4d4d4d*/
 	}
 
 	#mobile-nav #header {

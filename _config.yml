@@ -81,7 +81,6 @@ deploy:
   type: git
   repo: 
     github: https://gh_token@github.com/trtmu/trtmu.github.io.git
-    gitee: https://git@gitee.com:trtmu/io.git
   branch: master
 
 jsonContent:
