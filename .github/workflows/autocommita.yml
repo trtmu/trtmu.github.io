@@ -1,0 +1,57 @@
+name: Deploy Blog
+
+on: 
+  push:
+    branches:  # 在hexo分支发生push事件时触发
+      - hexo
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source # 下载源码(分支hexo)
+      uses: actions/checkout@v2
+      with:
+        path: main # 相对的工作路径
+        ref: hexo  # 指定hexo分支
+    - name: Setup node # 安装nodejs环境
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Install hexo dependencies # 安装hexo 相关依赖
+      run: |
+        cd main
+        npm i -g hexo-cli 
+    - name: Generate blog  # 开始构建
+      env:
+        TZ: Asia/Shanghai
+      run: |
+        cd main
+        hexo clean
+        hexo generate
+        ls
+    - name: Checkout  master# 下载发布的分支内容(master为发布分支)
+      uses: actions/checkout@v2
+      with:
+        path: master # 相对的工作路径
+        ref: master # 拉取master分支内容
+        fetch-depth: 0
+    - name: Publish to github
+      env:
+        TZ: Asia/Shanghai
+      run: |
+        echo '开始创建临时目录'
+        mkdir  temp 
+        echo '移动.git文件夹'
+        cp -r master/.git temp/
+        echo '复制生成的静态资源文件到temp目录'
+        mv main/public temp
+        echo '开始提交'
+        cd temp
+        git config --local user.email "248458398@qq.com"
+        git config --local user.name "trtmu"
+        git add .
+        git commit -m "Auto Delopy at `date +"%Y-%m-%d %H:%M"`"
+        git push origin master
+        rm -rf temp
+        echo 'over~'
