@@ -31,7 +31,7 @@ jobs:
         hexo clean
         hexo generate
         ls
-    - name: Checkout  master# 下载发布的分支内容(master为发布分支)
+    - name: Checkout  master # 下载发布的分支内容(master为发布分支)
       uses: actions/checkout@v2
       with:
         path: master # 相对的工作路径
