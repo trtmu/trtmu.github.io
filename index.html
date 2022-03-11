@@ -158,172 +158,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-HelloHexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/11/HelloHexo/">Hello Hexo</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/11/HelloHexo/" class="archive-article-date">
-  	<time datetime="2022-03-11T09:25:42.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="多端同步编辑步骤"><a href="#多端同步编辑步骤" class="headerlink" title="多端同步编辑步骤"></a>多端同步编辑步骤</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. git clone //克隆到本地</span><br><span class="line">2. npm install //安装必须的库包文件</span><br><span class="line">3. hexo clean //清除编译缓存文件</span><br><span class="line">4. 重新编辑</span><br><span class="line">5. hexo s //本地预览</span><br><span class="line">6. git add . //将修改添加至本地</span><br><span class="line">7. git commit -m &quot;&quot; //提交修改注释</span><br><span class="line">8. git push  //推送远程</span><br></pre></td></tr></table></figure>
-
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/11/HelloHexo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hibernate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/11/Hibernate/">Hibernate</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/11/Hibernate/" class="archive-article-date">
-  	<time datetime="2022-03-11T09:25:42.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a><center>Hibernate</center></h1><h3 id="Hibernate中对象的三种状态"><a href="#Hibernate中对象的三种状态" class="headerlink" title="Hibernate中对象的三种状态"></a>Hibernate中对象的三种状态</h3><p>详见<a href="http://blog.csdn.net/fg2006/article/details/6436517/" target="_blank" rel="noopener">这里</a></p>
-<h3 id="Hibernate中load和get方法的不同"><a href="#Hibernate中load和get方法的不同" class="headerlink" title="Hibernate中load和get方法的不同"></a>Hibernate中load和get方法的不同</h3><blockquote>
-<p>Hibernate中的get方法在调用之后会先确认该主键id对应的记录是否存在,先去session缓存中查找,然后在二级缓存中查找,如果还没有就进行查询数据库,数据库中没有则会返回null;而load方法会根据配置的加载时间(是否为懒加载)来判断,如果是懒加载则会在session缓存中查找,查找该id对应的对象是否存在,不存在则使用延迟加载,返回实体的代理类对象(该代理类为实体类的子类,由cglib生成).等具体使用该对象时,再查询二级缓存和数据库,若依旧没有发现则抛ObjectNotFoundException异常;如果不为懒加载和get一样,只是最终如果未查找到数据会抛上述异常</p>
-</blockquote>
-<h3 id="Hibernate-配置文件详解"><a href="#Hibernate-配置文件详解" class="headerlink" title="Hibernate 配置文件详解"></a>Hibernate 配置文件详解</h3><blockquote>
-<p>如果配置文件的文件名为hibernate.cfg.xml时,使用<code>new Configuration().configure().buildSessionFactory()</code>即可,如果要修改配置文件名,则需要将文件名作为参数用于构建SessionFactory对象:<code>new Configuration().configure(&quot;hibernate.xml&quot;).buildSessionFactory()</code></p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2022/03/11/Hibernate/#more">更多 >></a>
-        
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/11/Hibernate/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-DispatchServlet" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -337,7 +171,7 @@
 
         
         <a href="/2022/03/11/DispatchServlet/" class="archive-article-date">
-  	<time datetime="2022-03-11T09:25:42.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
+  	<time datetime="2022-03-11T09:30:53.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
 </a>
         
       </header>
@@ -439,6 +273,172 @@
 
 
   
+    <article id="post-HelloHexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/11/HelloHexo/">Hello Hexo</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/11/HelloHexo/" class="archive-article-date">
+  	<time datetime="2022-03-11T09:30:53.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="多端同步编辑步骤"><a href="#多端同步编辑步骤" class="headerlink" title="多端同步编辑步骤"></a>多端同步编辑步骤</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. git clone //克隆到本地</span><br><span class="line">2. npm install //安装必须的库包文件</span><br><span class="line">3. hexo clean //清除编译缓存文件</span><br><span class="line">4. 重新编辑</span><br><span class="line">5. hexo s //本地预览</span><br><span class="line">6. git add . //将修改添加至本地</span><br><span class="line">7. git commit -m &quot;&quot; //提交修改注释</span><br><span class="line">8. git push  //推送远程</span><br></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/11/HelloHexo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Hibernate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/11/Hibernate/">Hibernate</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/11/Hibernate/" class="archive-article-date">
+  	<time datetime="2022-03-11T09:30:53.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a><center>Hibernate</center></h1><h3 id="Hibernate中对象的三种状态"><a href="#Hibernate中对象的三种状态" class="headerlink" title="Hibernate中对象的三种状态"></a>Hibernate中对象的三种状态</h3><p>详见<a href="http://blog.csdn.net/fg2006/article/details/6436517/" target="_blank" rel="noopener">这里</a></p>
+<h3 id="Hibernate中load和get方法的不同"><a href="#Hibernate中load和get方法的不同" class="headerlink" title="Hibernate中load和get方法的不同"></a>Hibernate中load和get方法的不同</h3><blockquote>
+<p>Hibernate中的get方法在调用之后会先确认该主键id对应的记录是否存在,先去session缓存中查找,然后在二级缓存中查找,如果还没有就进行查询数据库,数据库中没有则会返回null;而load方法会根据配置的加载时间(是否为懒加载)来判断,如果是懒加载则会在session缓存中查找,查找该id对应的对象是否存在,不存在则使用延迟加载,返回实体的代理类对象(该代理类为实体类的子类,由cglib生成).等具体使用该对象时,再查询二级缓存和数据库,若依旧没有发现则抛ObjectNotFoundException异常;如果不为懒加载和get一样,只是最终如果未查找到数据会抛上述异常</p>
+</blockquote>
+<h3 id="Hibernate-配置文件详解"><a href="#Hibernate-配置文件详解" class="headerlink" title="Hibernate 配置文件详解"></a>Hibernate 配置文件详解</h3><blockquote>
+<p>如果配置文件的文件名为hibernate.cfg.xml时,使用<code>new Configuration().configure().buildSessionFactory()</code>即可,如果要修改配置文件名,则需要将文件名作为参数用于构建SessionFactory对象:<code>new Configuration().configure(&quot;hibernate.xml&quot;).buildSessionFactory()</code></p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2022/03/11/Hibernate/#more">更多 >></a>
+        
+      
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/11/Hibernate/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -452,7 +452,7 @@
 
         
         <a href="/2022/03/11/Linux/" class="archive-article-date">
-  	<time datetime="2022-03-11T09:25:42.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
+  	<time datetime="2022-03-11T09:30:53.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
 </a>
         
       </header>
@@ -554,7 +554,7 @@
 
         
         <a href="/2022/03/11/Maven与Mybatis/" class="archive-article-date">
-  	<time datetime="2022-03-11T09:25:42.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
+  	<time datetime="2022-03-11T09:30:53.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
 </a>
         
       </header>
@@ -663,7 +663,7 @@
 
         
         <a href="/2022/03/11/MySQL/" class="archive-article-date">
-  	<time datetime="2022-03-11T09:25:42.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
+  	<time datetime="2022-03-11T09:30:53.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
 </a>
         
       </header>
@@ -764,7 +764,7 @@
 
         
         <a href="/2022/03/11/Redis/" class="archive-article-date">
-  	<time datetime="2022-03-11T09:25:42.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
+  	<time datetime="2022-03-11T09:30:53.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
 </a>
         
       </header>
@@ -866,7 +866,7 @@
 
         
         <a href="/2022/03/11/Servlet/" class="archive-article-date">
-  	<time datetime="2022-03-11T09:25:42.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
+  	<time datetime="2022-03-11T09:30:53.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
 </a>
         
       </header>
@@ -969,7 +969,7 @@
 
         
         <a href="/2022/03/11/Shiro/" class="archive-article-date">
-  	<time datetime="2022-03-11T09:25:42.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
+  	<time datetime="2022-03-11T09:30:53.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
 </a>
         
       </header>
@@ -1058,7 +1058,7 @@
 
         
         <a href="/2022/03/11/Spring/" class="archive-article-date">
-  	<time datetime="2022-03-11T09:25:42.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
+  	<time datetime="2022-03-11T09:30:53.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-11</time>
 </a>
         
       </header>
@@ -1290,14 +1290,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -1306,15 +1298,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DispatcherServlet</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
