@@ -11,7 +11,7 @@ tags:
     - Java
 ---
 
-<center># Spring</center>
+# Spring
 
 ## Spring
 - Spring是一个轻量级**控制反转（IoC）**和**面向切面（aop）**的容器框架，他主要是为了解决企业应用开发的复杂性而诞生的。
