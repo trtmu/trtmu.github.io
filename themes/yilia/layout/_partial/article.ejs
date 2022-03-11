@@ -17,25 +17,8 @@
       <% } else { %>
         <%- post.content %>
       <% } %>
+
       <% if ((theme.reward_type === 2 || (theme.reward_type === 1 && post.reward)) && !index){ %>
-        <% if (post.hasBQ){ %>
-          <br>
-          <blockquote style="border-left:5px solid rgb(71, 53, 53);">
-            <p>
-              <b>
-              本文版权归  <a href="https://trtmu.cn" style="color:#51aded;"><%= config.author || config.title %></a>  所有
-              <br>
-              欢迎转载，但未经作者同意必须在文章页面给出原文链接
-              <br>否则保留追究法律责任的权利
-              <p>本文链接: <a href="<%=config.BQURL %><%- url_for(post.path) %>"><%=config.url %><%- url_for(post.path) %></a>
-              <p>本文作者: <a href="<%=config.BQURL %>"><%=config.author %></a>
-              </b>
-             
-            </p>
-          </blockquote>
-        <% } %>
-
-
         <div class="page-reward">
           <a href="javascript:;" class="page-reward-btn tooltip-top">
             <div class="tooltip tooltip-east">
