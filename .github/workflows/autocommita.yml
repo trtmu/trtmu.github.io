@@ -46,7 +46,7 @@ jobs:
         echo '移动.git文件夹'
         cp -r master/.git temp/
         echo '复制生成的静态资源文件到temp目录'
-        mv main/public temp
+        mv main/public/* temp
         echo '开始提交'
         cd temp
         git config --local user.email "248458398@qq.com"
