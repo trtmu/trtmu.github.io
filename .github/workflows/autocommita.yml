@@ -21,6 +21,7 @@ jobs:
     - name: Install hexo dependencies # 安装hexo 相关依赖
       run: |
         cd main
+        rm -rf node_modules && npm install --force
         npm i  hexo-cli  -g 
     - name: Generate blog  # 开始构建
       env:
