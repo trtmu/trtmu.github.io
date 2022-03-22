@@ -3,7 +3,7 @@
 menu:
   主页: /
   碎碎念: /soul
-  封存: /old
+  #封存: /old 抽时间处理下封存的事情
 
 # SubNav
 subnav:
