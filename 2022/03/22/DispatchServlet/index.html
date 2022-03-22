@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://trtmu.cn">
-  <title>Tag: Spring | Trtmu的博客</title>
+  <title>DispatcherServlet | Trtmu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Madman&apos;s">
-<meta name="keywords" content="后端,程序猿,JAVA,Liunx">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Trtmu的博客">
-<meta property="og:url" content="https://trtmu.cn/tags/Spring/index.html">
+  <meta name="description" content="DispatcherServlet简介 DispatcherServlet主要用作职责调度工作，本身主要用于控制流程，主要职责如下： 1、文件上传解析，如果请求类型是multipart将通过MultipartResolver进行文件上传解析； 2、通过HandlerMapping，将请求映射到处理器（返回一个HandlerExecutionChain，它包括一个处理器、多个HandlerInter">
+<meta name="keywords" content="Java,笔记,DispatcherServlet,Servlet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DispatcherServlet">
+<meta property="og:url" content="https://trtmu.cn/2022/03/22/DispatchServlet/index.html">
 <meta property="og:site_name" content="Trtmu的博客">
-<meta property="og:description" content="Madman&apos;s">
+<meta property="og:description" content="DispatcherServlet简介 DispatcherServlet主要用作职责调度工作，本身主要用于控制流程，主要职责如下： 1、文件上传解析，如果请求类型是multipart将通过MultipartResolver进行文件上传解析； 2、通过HandlerMapping，将请求映射到处理器（返回一个HandlerExecutionChain，它包括一个处理器、多个HandlerInter">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-03-22T09:32:58.064Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Trtmu的博客">
-<meta name="twitter:description" content="Madman&apos;s">
+<meta name="twitter:title" content="DispatcherServlet">
+<meta name="twitter:description" content="DispatcherServlet简介 DispatcherServlet主要用作职责调度工作，本身主要用于控制流程，主要职责如下： 1、文件上传解析，如果请求类型是multipart将通过MultipartResolver进行文件上传解析； 2、通过HandlerMapping，将请求映射到处理器（返回一个HandlerExecutionChain，它包括一个处理器、多个HandlerInter">
   
     <link rel="alternative" href="/atom.xml" title="Trtmu的博客" type="application/atom+xml">
   
@@ -154,36 +155,150 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-DispatchServlet" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/22/Spring/" class="archive-article-date">
-  	<time datetime="2022-03-22T09:32:58.064Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/22/Spring/">Spring</a>
+    <h1 class="article-title" itemprop="name">
+      DispatcherServlet
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2022/03/22/DispatchServlet/" class="archive-article-date">
+  	<time datetime="2022-03-22T09:32:58.064Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="DispatcherServlet简介"><a href="#DispatcherServlet简介" class="headerlink" title="DispatcherServlet简介"></a>DispatcherServlet简介</h3><ul>
+<li><code>DispatcherServlet</code>主要用作职责调度工作，本身主要用于控制流程，主要职责如下：<ul>
+<li>1、文件上传解析，如果请求类型是<code>multipart</code>将通过<code>MultipartResolver</code>进行文件上传解析；</li>
+<li>2、通过<code>HandlerMapping</code>，将请求映射到处理器（返回一个<code>HandlerExecutionChain</code>，它包括一个处理器、多个<code>HandlerInterceptor</code>拦截器）；</li>
+<li>3、通过<code>HandlerAdapter</code>支持多种类型的处理器(<code>HandlerExecutionChain</code>中的处理器)；</li>
+<li>4、通过<code>ViewResolver</code>解析逻辑视图名到物理视图实现；</li>
+<li>5、本地资源处理；</li>
+<li>6、渲染具体的视图等；</li>
+<li>7、如果执行过程中遇到异常将交给<code>HandlerExceptionResolver</code>来解析。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>从以上我们可以看出<code>DispatcherServlet</code>主要负责流程的控制（而且在流程中的每个关键点都是很容易扩展的）。</p>
+</blockquote>
+<ul>
+<li><code>DispatcherServlet</code>在<code>web.xml</code>中的配置<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>load-on-startup：表示启动容器时初始化该Servlet；</li>
+<li>url-pattern：表示哪些请求交给Spring Web MVC处理</li>
+<li>精确匹配 <code>&lt;url-pattern&gt;/index.html&lt;/url-pattern&gt;</code></li>
+<li>路径匹配 <code>&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</code></li>
+<li>扩展名匹配 <code>&lt;url-pattern&gt;*.jsp&lt;/url-pattern&gt;</code></li>
+<li>缺省匹配 <code>&lt;url-pattern&gt;/&lt;/url-pattern&gt;</code></li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h3 id="DispatcherServlet初始化顺序"><a href="#DispatcherServlet初始化顺序" class="headerlink" title="DispatcherServlet初始化顺序"></a><code>DispatcherServlet</code>初始化顺序</h3><h4 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a><code>Servlet</code>的生命周期</h4><ul>
+<li><code>Servlet</code>的生命周期是由<code>Servlet</code>的容器来控制的。<blockquote>
+<p>分为3个阶段：初始化阶段、运行阶段、销毁阶段。</p>
+</blockquote>
+</li>
+<li>初始化阶段：<code>Servlet</code>容器创建<code>Servlet</code>对象,调用<code>Servlet</code>对象的初始化方法。</li>
+<li><p>运行阶段<br>在这个阶段<code>Sevlet</code>可以随时响应客户端的请求。当<code>servlet</code>容器接到访问特定的servlet请求时，servlet容器会创建针对与这个请求的<code>servletRequest</code>和<code>servletResponse</code>对象，然后调用<code>service()</code>方法，并把这两个对象当做参数传递给<code>service()</code>方法。<code>Service()</code>方法通过<code>servletRequest</code>对象获得请求信息，并处理该请求，再通过<code>servletResponse</code>对象生成响应结果。</p>
+<blockquote>
+<p>【不管是<code>post</code>还是<code>get</code>方法提交，都会在<code>service</code>中处理，然后，由<code>service</code>来交由相应的<code>doPost</code>或<code>doGet</code>方法处理，如果你重写了<code>service</code>方法，就不会再处理<code>doPost</code>或d<code>oGet</code>了，如果重写<code>sevice()</code>方法，可以自己转向<code>doPost()</code>或<code>doGet()</code>方法】<br>注：当<code>servlet</code>容器把<code>servlet</code>生成的响应结果发送给客户后，<code>servlet</code>容器会销毁<code>servletRequest</code>和<code>sevletResponse</code>对象。</p>
+</blockquote>
+</li>
+<li><p>销毁阶段<br>当Web应用被终止时，<code>servlet</code>容器会先调用web应用中所有的<code>servlet</code>对象的<code>destroy（）</code>方法，然后在销毁<code>servlet</code>对象。此外容器还会销毁与<code>servlet</code>对象关联的<code>servletConfig</code>对象。在<code>destroy（）</code>方法的实现中，可以释放<code>servlet</code>所占用的资源。如关闭文件输入输出流，关闭与数据库的连接。</p>
+<blockquote>
+<p><code>HttpServletBean</code>继承<code>HttpServlet</code>，因此在Web容器启动时将调用它的<code>init</code>方法，该初始化方法的主要作用是将<code>Servlet</code>初始化参数（init-param）设置到该组件上（如<code>contextAttribute、contextClass、namespace、contextConfigLocation</code>），通过<code>BeanWrapper</code>简化设值过程，方便后续使用,提供给子类初始化扩展点，<code>initServletBean()</code>，该方法由<code>FrameworkServlet</code>覆盖。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpServletBean</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> <span class="keyword">implements</span> <span class="title">EnvironmentAware</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">       <span class="comment">//省略部分代码</span></span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="comment">//使用servletConfig对象找出配置参数设置到内部</span></span><br><span class="line">           PropertyValues pvs = <span class="keyword">new</span> ServletConfigPropertyValues(getServletConfig(), <span class="keyword">this</span>.requiredProperties);</span><br><span class="line">           <span class="comment">//使用BeanWrapper构造DispatcherServlet</span></span><br><span class="line">           BeanWrapper bw = PropertyAccessorFactory.forBeanPropertyAccess(<span class="keyword">this</span>);</span><br><span class="line">           ResourceLoader resourceLoader = <span class="keyword">new</span> ServletContextResourceLoader(getServletContext());</span><br><span class="line">           bw.registerCustomEditor(Resource<span class="class">.<span class="keyword">class</span>, <span class="title">new</span> <span class="title">ResourceEditor</span>(<span class="title">resourceLoader</span>, <span class="title">this</span>.<span class="title">environment</span>))</span>;</span><br><span class="line">           initBeanWrapper(bw);</span><br><span class="line">           bw.setPropertyValues(pvs, <span class="keyword">true</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">catch</span> (BeansException ex) &#123;</span><br><span class="line">           <span class="comment">//…………省略其他代码</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">//2、提供给子类初始化的扩展点，该方法由FrameworkServlet覆盖</span></span><br><span class="line">       initServletBean();</span><br><span class="line">       <span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">           logger.debug(<span class="string">"Servlet '"</span> + getServletName() + <span class="string">"' configured successfully"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//…………省略其他代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li><code>BeanWrapper</code>是对<code>Bean</code>的包装，其接口中所定义的功能很简单包括设置获取被包装的对象，获取被包装<code>bean</code>的属性描述器，由于<code>BeanWrapper</code>接口是<code>PropertyAccessor</code>的子接口，因此其也可以设置以及访问被包装对象的属性值。<code>BeanWrapperImpl</code>类提供了许多默认属性编辑器，支持多种不同类型的类型转换，可以将数组、集合类型的属性转换成指定特殊类型的数组或集合。用户也可以注册自定义的属性编辑器在<code>BeanWrapperImpl</code>中。<br>2.<code>FrameworkServlet</code>继承<code>HttpServletBean</code>，通过<code>initServletBean()</code>进行Web上下文初始化，该方法主要覆盖一下两件事情：<ul>
+<li>初始化<code>web</code>上下文；</li>
+<li>提供给子类初始化扩展点；</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">FrameworkServlet</span> <span class="keyword">extends</span> <span class="title">HttpServletBean</span> </span>&#123;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">initServletBean</span><span class="params">()</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">        <span class="comment">//省略部分代码</span></span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">             <span class="comment">//1、初始化Web上下文</span></span><br><span class="line">           <span class="keyword">this</span>.webApplicationContext = initWebApplicationContext();</span><br><span class="line">             <span class="comment">//2、提供给子类初始化的扩展点</span></span><br><span class="line">           initFrameworkServlet();</span><br><span class="line">       &#125;</span><br><span class="line">        <span class="comment">//省略部分代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">protected</span> WebApplicationContext <span class="title">initWebApplicationContext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//ROOT上下文（ContextLoaderListener加载的）</span></span><br><span class="line">       WebApplicationContext rootContext =</span><br><span class="line">              WebApplicationContextUtils.getWebApplicationContext(getServletContext());</span><br><span class="line">       WebApplicationContext wac = <span class="keyword">null</span>;</span><br><span class="line">       <span class="keyword">if</span> (<span class="keyword">this</span>.webApplicationContext != <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="comment">// 1、在创建该Servlet注入的上下文</span></span><br><span class="line">           wac = <span class="keyword">this</span>.webApplicationContext;</span><br><span class="line">           <span class="keyword">if</span> (wac <span class="keyword">instanceof</span> ConfigurableWebApplicationContext) &#123;</span><br><span class="line">              ConfigurableWebApplicationContext cwac = (ConfigurableWebApplicationContext) wac;</span><br><span class="line">              <span class="keyword">if</span> (!cwac.isActive()) &#123;</span><br><span class="line">                  <span class="keyword">if</span> (cwac.getParent() == <span class="keyword">null</span>) &#123;</span><br><span class="line">                      cwac.setParent(rootContext);</span><br><span class="line">                  &#125;</span><br><span class="line">                  configureAndRefreshWebApplicationContext(cwac);</span><br><span class="line">              &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (wac == <span class="keyword">null</span>) &#123;</span><br><span class="line">             <span class="comment">//2、查找已经绑定的上下文</span></span><br><span class="line">           wac = findWebApplicationContext();</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (wac == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">//3、如果没有找到相应的上下文，并指定父亲为ContextLoaderListener</span></span><br><span class="line">           wac = createWebApplicationContext(rootContext);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (!<span class="keyword">this</span>.refreshEventReceived) &#123;</span><br><span class="line">             <span class="comment">//4、刷新上下文（执行一些初始化）</span></span><br><span class="line">           onRefresh(wac);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (<span class="keyword">this</span>.publishContext) &#123;</span><br><span class="line">           <span class="comment">// Publish the context as a servlet context attribute.</span></span><br><span class="line">           String attrName = getServletContextAttributeName();</span><br><span class="line">           getServletContext().setAttribute(attrName, wac);</span><br><span class="line">           <span class="comment">//省略部分代码</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> wac;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从<code>initWebApplicationContext（）</code>方法可以看出，基本上如果<code>ContextLoaderListener</code>加载了上下文将作为根上下文（DispatcherServlet的父容器）。最后调用了<code>onRefresh()</code>方法执行容器的一些初始化，这个方法由子类实现，来进行扩展。</p>
+</blockquote>
+<ul>
+<li><p><code>DispatcherServlet</code>继承<code>FrameworkServlet</code>，并实现了<code>onRefresh()</code>方法提供一些前端控制器相关的配置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DispatcherServlet</span> <span class="keyword">extends</span> <span class="title">FrameworkServlet</span> </span>&#123;</span><br><span class="line">     <span class="comment">//实现子类的onRefresh()方法，该方法委托为initStrategies()方法。</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onRefresh</span><span class="params">(ApplicationContext context)</span> </span>&#123;</span><br><span class="line">       initStrategies(context);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//初始化默认的Spring Web MVC框架使用的策略（如HandlerMapping）</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initStrategies</span><span class="params">(ApplicationContext context)</span> </span>&#123;</span><br><span class="line">       initMultipartResolver(context);</span><br><span class="line">       initLocaleResolver(context);</span><br><span class="line">       initThemeResolver(context);</span><br><span class="line">       initHandlerMappings(context);</span><br><span class="line">       initHandlerAdapters(context);</span><br><span class="line">       initHandlerExceptionResolvers(context);</span><br><span class="line">       initRequestToViewNameTranslator(context);</span><br><span class="line">       initViewResolvers(context);</span><br><span class="line">       initFlashMapManager(context);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从如上代码可以看出，<code>DispatcherServlet</code>启动时会进行我们需要的Web层Bean的配置，如<code>HandlerMapping、HandlerAdapter</code>等，而且如果我们没有配置，还会给我们提供默认的配置。具体做了两件事情:</p>
+<ol>
+<li>初始化Spring Web MVC使用的Web上下文，并且可能指定父容器为（<code>ContextLoaderListener</code>加载了根上下文）；</li>
+<li>初始化<code>DispatcherServlet</code>使用的策略，如<code>HandlerMapping</code>、<code>HandlerAdapter</code>等。</li>
+</ol>
+</li>
+</ul>
+<h4 id="常见的Bean"><a href="#常见的Bean" class="headerlink" title="常见的Bean"></a>常见的Bean</h4><ol>
+<li><code>Controller</code>：处理器/许多特殊的Bean</li>
+<li><code>DispatcherServlet</code>中使用的特殊的Bean页面控制器，做的是MVC中的C的事情，但控制逻辑转移到前端控制器了，用于对请求进行处理；</li>
+<li><code>HandlerMapping</code>：请求到处理器的映射，如果映射成功返回一个<code>HandlerExecutionChain</code>对象（包含一个<code>Handler</code>处理器（页面控制器）对象、多个<code>HandlerInterceptor</code>拦截器）对象；如<code>BeanNameUrlHandlerMapping</code>将URL与Bean名字映射，映射成功的Bean就是此处的处理器；</li>
+<li><code>HandlerAdapter</code>：<code>HandlerAdapter</code>将会把处理器包装为适配器，从而支持多种类型的处理器，即适配器设计模式的应用，从而很容易支持很多类型的处理器；如<code>SimpleControllerHandlerAdapter</code>将对实现了<code>Controller</code>接口的Bean进行适配，并且掉处理器的<code>handleRequest</code>方法进行功能处理；</li>
+<li><code>ViewResolver</code>：<code>ViewResolver</code>将把逻辑视图名解析为具体的View，通过这种策略模式，很容易更换其他视图技术；如<code>InternalResourceViewResolver</code>将逻辑视图名映射为jsp视图；</li>
+<li><code>LocalResover</code>：本地化解析，因为Spring支持国际化，因此<code>LocalResover</code>解析客户端的<code>Locale</code>信息从而方便进行国际化；</li>
+<li><code>ThemeResovler</code>：主题解析，通过它来实现一个页面多套风格，即常见的类似于软件皮肤效果；</li>
+<li><code>MultipartResolver</code>：文件上传解析，用于支持文件上传；</li>
+<li><code>HandlerExceptionResolver</code>：处理器异常解析，可以将异常映射到相应的统一错误界面，从而显示用户友好的界面（而不是给用户看到具体的错误信息）；</li>
+<li><code>RequestToViewNameTranslator</code>：当处理器没有返回逻辑视图名等相关信息时，自动将请求URL映射为逻辑视图名；</li>
+<li><code>FlashMapManager</code>：用于管理<code>FlashMap</code>的策略接口，<code>FlashMap</code>用于存储一个请求的输出，当进入另一个请求时作为该请求的输入，通常用于重定向场景</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢大爷~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/zfb_pay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/wx_pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,29 +312,74 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DispatcherServlet</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Servlet</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2022/03/22/反射及反射的应用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java反射
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2022/03/22/HelloHexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello Hexo</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,9 +402,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,

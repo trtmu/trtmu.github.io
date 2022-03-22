@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://trtmu.cn">
-  <title>Tag: Spring | Trtmu的博客</title>
+  <title>Java反射 | Trtmu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Madman&apos;s">
-<meta name="keywords" content="后端,程序猿,JAVA,Liunx">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Trtmu的博客">
-<meta property="og:url" content="https://trtmu.cn/tags/Spring/index.html">
+  <meta name="description" content="Java反射 加载类对象的方式(字节码对象) Class cls =Class.forName(&amp;quot;类的全限定名&amp;quot;)    Java反射应用 Java反射的应用 xml自定义DTD和解析 注解的申明,使用和解析    xml的DTD定义和xml的解析DTD解析 DTD文件中的节点定义和属性定义 DTD文件的作用:规范xml文件的节点或标签以及标签中的属性和子标签  xml解析 解">
+<meta name="keywords" content="Java,笔记,基础,反射">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java反射">
+<meta property="og:url" content="https://trtmu.cn/2022/03/22/反射及反射的应用/index.html">
 <meta property="og:site_name" content="Trtmu的博客">
-<meta property="og:description" content="Madman&apos;s">
+<meta property="og:description" content="Java反射 加载类对象的方式(字节码对象) Class cls =Class.forName(&amp;quot;类的全限定名&amp;quot;)    Java反射应用 Java反射的应用 xml自定义DTD和解析 注解的申明,使用和解析    xml的DTD定义和xml的解析DTD解析 DTD文件中的节点定义和属性定义 DTD文件的作用:规范xml文件的节点或标签以及标签中的属性和子标签  xml解析 解">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-03-22T09:32:58.068Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Trtmu的博客">
-<meta name="twitter:description" content="Madman&apos;s">
+<meta name="twitter:title" content="Java反射">
+<meta name="twitter:description" content="Java反射 加载类对象的方式(字节码对象) Class cls =Class.forName(&amp;quot;类的全限定名&amp;quot;)    Java反射应用 Java反射的应用 xml自定义DTD和解析 注解的申明,使用和解析    xml的DTD定义和xml的解析DTD解析 DTD文件中的节点定义和属性定义 DTD文件的作用:规范xml文件的节点或标签以及标签中的属性和子标签  xml解析 解">
   
     <link rel="alternative" href="/atom.xml" title="Trtmu的博客" type="application/atom+xml">
   
@@ -154,36 +155,175 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-反射及反射的应用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/22/Spring/" class="archive-article-date">
-  	<time datetime="2022-03-22T09:32:58.064Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/22/Spring/">Spring</a>
+    <h1 class="article-title" itemprop="name">
+      Java反射
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2022/03/22/反射及反射的应用/" class="archive-article-date">
+  	<time datetime="2022-03-22T09:32:58.068Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Java反射"><a href="#Java反射" class="headerlink" title="Java反射"></a>Java反射</h2><ul>
+<li>加载类对象的方式(字节码对象)<ul>
+<li><code>Class cls =Class.forName(&quot;类的全限定名&quot;)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="Java反射应用"><a href="#Java反射应用" class="headerlink" title="Java反射应用"></a>Java反射应用</h3><ul>
+<li>Java反射的应用<ol>
+<li>xml自定义DTD和解析</li>
+<li>注解的申明,使用和解析</li>
+</ol>
+</li>
+</ul>
+<h4 id="xml的DTD定义和xml的解析"><a href="#xml的DTD定义和xml的解析" class="headerlink" title="xml的DTD定义和xml的解析"></a>xml的DTD定义和xml的解析</h4><h5 id="DTD解析"><a href="#DTD解析" class="headerlink" title="DTD解析"></a>DTD解析</h5><ul>
+<li>DTD文件中的节点定义和属性定义</li>
+<li>DTD文件的作用:规范xml文件的节点或标签以及标签中的属性和子标签</li>
+</ul>
+<h5 id="xml解析"><a href="#xml解析" class="headerlink" title="xml解析"></a>xml解析</h5><ul>
+<li>解析的几种方式<ul>
+<li>SAX(基于事件,不可终止解析,基于模板设计模式)</li>
+<li>PULL(基于事件,可终止解析,基于循环)</li>
+<li>Dom/Dom4j(基于节点)</li>
+</ul>
+</li>
+<li><p>SAX解析中核心的类及方法:</p>
+<ul>
+<li><code>SAXParserFactory</code> 解析器工厂类</li>
+<li><code>SAXParser</code> 解析器</li>
+<li><code>SAXParser.parse(Source,DefaultHandler)</code><blockquote>
+<p><code>Sourse</code> 是一个流,<code>DefaultHandler</code> 可以认为是解析过程中的事件回调接口</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>XML解析事件</p>
+<ul>
+<li>文档开始:startDocument()</li>
+<li>文档结束:endDocumemt()</li>
+<li>标签开始:<code>startElement(String uri, String localName, String qName,//标签名 Attributesatts att)</code>//标签属性集</li>
+<li>标签结束:<code>endElement(String uri,String localName,String qName)</code></li>
+<li>文本标签:<code>characters(char[] ch,int start,int length)</code></li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="DTD文件中使用的声明标签"><a href="#DTD文件中使用的声明标签" class="headerlink" title="DTD文件中使用的声明标签:"></a>DTD文件中使用的声明标签:</h4><ul>
+<li><code>&lt;!ELEMENT 节点名(节点类型或子节点元素)</code></li>
+<li><code>&lt;!ATTLIST 节点名  属性名  数据类型  验证类型</code></li>
+<li>数据类型: <ul>
+<li><code>REQUIRED</code> 约束唯一性;</li>
+<li><code>CDTATA</code> 约束类型为字符类型(可以包含字母和数字);</li>
+<li>常量集,以’|’分割</li>
+</ul>
+</li>
+<li>验证类型:<ul>
+<li>#REQUIRED 必须指定的属性</li>
+<li>#IMPLIED  可选</li>
+<li>#FIXED VALUE 固定值</li>
+</ul>
+</li>
+</ul>
+<h4 id="在XMl文件中如何引入DTD文件"><a href="#在XMl文件中如何引入DTD文件" class="headerlink" title="在XMl文件中如何引入DTD文件"></a>在XMl文件中如何引入DTD文件</h4><ul>
+<li>SYSTEM系统文件<br><code>&lt;!DOCTYPE 根标签 SYSTEM &quot;.dtd文件路径&quot;&gt;</code></li>
+<li>PUBLIC网络资源<br><code>&lt;!DOCTYPE 根标签 PUBLIC &quot;ID(名字)&quot; &quot;URL地址&quot;&gt;</code></li>
+</ul>
+<h4 id="注解的声明使用和解析"><a href="#注解的声明使用和解析" class="headerlink" title="注解的声明使用和解析"></a>注解的声明使用和解析</h4><ul>
+<li><p>什么是注解(Annotation)</p>
+<blockquote>
+<p>注解:以<code>@Interface</code>声明的类称为注解类,常用注解<code>@Override</code>,<code>@Test</code>等,用于申明方法或者类或参数的额外的信息(验证,执行的方式,注入数据)</p>
+</blockquote>
+</li>
+<li><p>注解的基本语法  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//必须声明员注解(有效性,注解位置)</span><br><span class="line">public @interface Table&#123;</span><br><span class="line">    String value()//属性方法    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用的元注解</p>
+<ul>
+<li><code>@Retention(RetentionPolicy.RUNTIME\SOURCE\CLASS)</code>:注解的有效性</li>
+<li><code>@Target(ElementType.TYPE\METHOD\FIELD\...)</code>:注解可被使用的位置<ul>
+<li><code>TYPE</code>:表示类上可用</li>
+<li><code>METHOD</code>:表示方法上可用</li>
+<li><code>FIELD</code>:属性字段上可用  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用注解的注意事项</p>
+<ul>
+<li>@注解类名</li>
+<li>如果注解中的属性只存在一个,且名为value,则在设置属性值不需要写value=)(不需要指定属性名)</li>
+<li>如果注解中的属性有多个,在属性赋值时必须指定属性名,多个属性之间用逗号分隔</li>
+</ul>
+</li>
+<li><p>解析注解</p>
+<blockquote>
+<p>注解本身只是装饰,如果不解析的话没有任何意义.可以通过JAVA反射方式解析注解  </p>
+</blockquote>
+</li>
+</ul>
+<h3 id="使用反射自定义MVC框架"><a href="#使用反射自定义MVC框架" class="headerlink" title="使用反射自定义MVC框架"></a>使用反射自定义MVC框架</h3><h4 id="核心控制器的实现-DispatcherServlet"><a href="#核心控制器的实现-DispatcherServlet" class="headerlink" title="核心控制器的实现(DispatcherServlet)"></a>核心控制器的实现(DispatcherServlet)</h4><ul>
+<li>功能<ul>
+<li>获取请求的路径</li>
+<li>解析控制器配置中心</li>
+<li>获取请求对应的处理类</li>
+<li>执行处理类方法,实现业务逻辑</li>
+<li>根据处理的结果响应给页面</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢大爷~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/zfb_pay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/wx_pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,25 +341,70 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">反射</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2022/03/22/其他知识点/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          其他笔记
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2022/03/22/DispatchServlet/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DispatcherServlet</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,9 +427,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,

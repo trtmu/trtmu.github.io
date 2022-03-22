@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://trtmu.cn">
-  <title>Tag: Spring | Trtmu的博客</title>
+  <title>Solr | Trtmu的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Madman&apos;s">
-<meta name="keywords" content="后端,程序猿,JAVA,Liunx">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Trtmu的博客">
-<meta property="og:url" content="https://trtmu.cn/tags/Spring/index.html">
+  <meta name="description" content="Solr概述 2.1.什么是Solr Solr 是Apache下的一个顶级开源项目，采用Java开发，它是基于Lucene的全文搜索服务器。Solr提供了比Lucene更为丰富的查询语言，同时实现了可配置、可扩展，并对索引、搜索性能进行了优化。  Solr可以独立运行，运行在Jetty、Tomcat等这些Servlet容器中，Solr 索引的实现方法很简单，用 POST 方法向 Solr 服务器发">
+<meta name="keywords" content="Java,笔记,基础,Solr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Solr">
+<meta property="og:url" content="https://trtmu.cn/2022/03/22/solr/index.html">
 <meta property="og:site_name" content="Trtmu的博客">
-<meta property="og:description" content="Madman&apos;s">
+<meta property="og:description" content="Solr概述 2.1.什么是Solr Solr 是Apache下的一个顶级开源项目，采用Java开发，它是基于Lucene的全文搜索服务器。Solr提供了比Lucene更为丰富的查询语言，同时实现了可配置、可扩展，并对索引、搜索性能进行了优化。  Solr可以独立运行，运行在Jetty、Tomcat等这些Servlet容器中，Solr 索引的实现方法很简单，用 POST 方法向 Solr 服务器发">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-03-22T09:32:58.068Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Trtmu的博客">
-<meta name="twitter:description" content="Madman&apos;s">
+<meta name="twitter:title" content="Solr">
+<meta name="twitter:description" content="Solr概述 2.1.什么是Solr Solr 是Apache下的一个顶级开源项目，采用Java开发，它是基于Lucene的全文搜索服务器。Solr提供了比Lucene更为丰富的查询语言，同时实现了可配置、可扩展，并对索引、搜索性能进行了优化。  Solr可以独立运行，运行在Jetty、Tomcat等这些Servlet容器中，Solr 索引的实现方法很简单，用 POST 方法向 Solr 服务器发">
   
     <link rel="alternative" href="/atom.xml" title="Trtmu的博客" type="application/atom+xml">
   
@@ -154,36 +155,220 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-solr" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/22/Spring/" class="archive-article-date">
-  	<time datetime="2022-03-22T09:32:58.064Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/22/Spring/">Spring</a>
+    <h1 class="article-title" itemprop="name">
+      Solr
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2022/03/22/solr/" class="archive-article-date">
+  	<time datetime="2022-03-22T09:32:58.068Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Solr概述"><a href="#Solr概述" class="headerlink" title="Solr概述"></a>Solr概述</h3><ul>
+<li>2.1.什么是Solr<blockquote>
+<pre><code>Solr 是Apache下的一个顶级开源项目，采用Java开发，它是基于Lucene的全文搜索服务器。Solr提供了比Lucene更为丰富的查询语言，同时实现了可配置、可扩展，并对索引、搜索性能进行了优化。 
+Solr可以独立运行，运行在Jetty、Tomcat等这些Servlet容器中，Solr 索引的实现方法很简单，用 POST 方法向 Solr 服务器发送一个描述 Field 及其内容的 XML 文档，Solr根据xml文档添加、删除、更新索引 。Solr 搜索只需要发送 HTTP GET 请求，然后对 Solr 返回Xml、json等格式的查询结果进行解析，组织页面布局。Solr不提供构建UI的功能，Solr提供了一个管理界面，通过管理界面可以查询Solr的配置和运行情况。
+</code></pre></blockquote>
+</li>
+</ul>
+<ul>
+<li>2.2.下载<blockquote>
+<p>从Solr官方网站（<a href="http://lucene.apache.org/solr/" target="_blank" rel="noopener">http://lucene.apache.org/solr/</a> ）下载Solr4.10.3，根据Solr的运行环境，Linux下需要下载lucene-4.10.3.tgz，windows下需要下载lucene-4.10.3.zip。<br>Solr使用指南可参考：<a href="https://wiki.apache.org/solr/FrontPage。" target="_blank" rel="noopener">https://wiki.apache.org/solr/FrontPage。</a><br>下载lucene-4.10.3.zip并解压：<br>bin：solr的运行脚本<br>contrib：solr的一些贡献软件/插件，用于增强solr的功能。<br>dist：该目录包含build过程中产生的war和jar文件，以及相关的依赖文件。<br>docs：solr的API文档<br>example：solr工程的例子目录：</p>
+<pre><code>example/solr：
+    该目录是一个包含了默认配置信息的Solr的Core目录。
+example/multicore：
+    该目录包含了在Solr的multicore中设置的多个Core目录。 
+example/webapps：
+该目录中包括一个solr.war，该war可作为solr的运行实例工程。
+</code></pre><p>licenses：solr相关的一些许可信息</p>
+</blockquote>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="3-Solr的安装及配置"><a href="#3-Solr的安装及配置" class="headerlink" title="3.    Solr的安装及配置"></a>3.    Solr的安装及配置</h3><ul>
+<li><p>3.1 运行环境</p>
+<blockquote>
+<p>solr 需要运行在一个Servlet容器中，Solr4.10.3要求jdk使用1.7以上，Solr默认提供Jetty（java写的Servlet容器），本文使用Tocmat作为Servlet容器，环境如下：</p>
+<pre><code>Solr：Solr4.10.3
+Jdk：jdk1.7.0_72
+Tomcat：apache-tomcat-7.0.53&lt;
+</code></pre></blockquote>
+</li>
+<li><p>3.2 Solr整合tomcat</p>
+<ul>
+<li>1.将dist\solr-4.10.3.war拷贝到Tomcat的webapp目录下改名为solr.war</li>
+<li>2.启动tomcat后，solr.war自动解压，将原来的solr.war删除。</li>
+<li>3.拷贝example\lib\ext 目录下所有jar包到Tomcat的webapp\solr\WEB-INF\lib目录下</li>
+<li>4.拷贝log4j.properties文件</li>
+<li>5.在Tomcat下webapps\solr\WEB-INF目录中创建文件 classes文件夹，</li>
+<li>6.复制Solr目录下example\resources\log4j.properties至Tomcat下webapps\solr\WEB-INF\classes目录 </li>
+<li>7.创建solrhome及配置solrcore的solrconfig.xml文件</li>
+<li>8.修改Tomcat目录 下webapp\solr\WEB-INF\web.xml文件，如下所示：</li>
+</ul>
+</li>
+<li>设置Solr home<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置jndi告诉solr工程我们的solrhome的位置--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">env-entry</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">env-entry-name</span>&gt;</span>solr/home<span class="tag">&lt;/<span class="name">env-entry-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">env-entry-value</span>&gt;</span>D:/temp/solr/solrhome<span class="tag">&lt;/<span class="name">env-entry-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">env-entry-type</span>&gt;</span>java.lang.String<span class="tag">&lt;/<span class="name">env-entry-type</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">env-entry</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="5-安装中文分词器"><a href="#5-安装中文分词器" class="headerlink" title="5.    安装中文分词器"></a>5.    安装中文分词器</h4><h5 id="5-1-安装步骤"><a href="#5-1-安装步骤" class="headerlink" title="5.1.    安装步骤"></a>5.1.    安装步骤</h5><ul>
+<li>5.1.1.    第一步：配置IKAnalyzer的jar包<blockquote>
+<pre><code>拷贝IKAnalyzer的文件到Tomcat下Solr目录中
+将IKAnalyzer2012FF_u1.jar拷贝到 Tomcat的webapps/solr/WEB-INF/lib 下。
+</code></pre></blockquote>
+</li>
+<li>5.1.2.第二步：IKAnalyzer的配置文件<blockquote>
+<pre><code>在Tomcat的webapps/solr/WEB-INF/下创建classes目录
+将IKAnalyzer.cfg.xml、ext_stopword.dic  mydict.dic  copy到 Tomcat的
+webapps/solr/WEB-INF/classes
+注意：ext_stopword.dic 和mydict.dic必须保存成无BOM的utf-8类型。&gt;
+</code></pre></blockquote>
+</li>
+<li>5.1.3.    第三步：修改schema.xml文件<blockquote>
+<pre><code>修改schema.xml文件
+修改Solr的schema.xml文件，添加FieldType：
+&lt;fieldType name=&quot;text_ik&quot; class=&quot;solr.TextField&quot;&gt;
+  &lt;analyzer class=&quot;org.wltea.analyzer.lucene.IKAnalyzer&quot;/&gt;
+&lt;/fieldType&gt;
+</code></pre></blockquote>
+</li>
+<li>5.1.4 </li>
+<li>设置业务系统Field<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_title"</span> <span class="attr">type</span>=<span class="string">"text_ik"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_sell_point"</span> <span class="attr">type</span>=<span class="string">"text_ik"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_price"</span>  <span class="attr">type</span>=<span class="string">"long"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_image"</span> <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">indexed</span>=<span class="string">"false"</span> <span class="attr">stored</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_category_name"</span> <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_desc"</span> <span class="attr">type</span>=<span class="string">"text_ik"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"item_keywords"</span> <span class="attr">type</span>=<span class="string">"text_ik"</span> <span class="attr">indexed</span>=<span class="string">"true"</span> <span class="attr">stored</span>=<span class="string">"false"</span> <span class="attr">multiValued</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"item_title"</span> <span class="attr">dest</span>=<span class="string">"item_keywords"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"item_sell_point"</span> <span class="attr">dest</span>=<span class="string">"item_keywords"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"item_category_name"</span> <span class="attr">dest</span>=<span class="string">"item_keywords"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">copyField</span> <span class="attr">source</span>=<span class="string">"item_desc"</span> <span class="attr">dest</span>=<span class="string">"item_keywords"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="6-搭建tao-search服务"><a href="#6-搭建tao-search服务" class="headerlink" title="6.    搭建tao-search服务"></a>6.    搭建tao-search服务</h4><ul>
+<li>6.1    创建工程</li>
+<li>6.2    配置工程<blockquote>
+<p>工程配置参考XX-rest，基本相同，不需要引入Jedis 的jar包，需要sorlJ的jar包。其他都相同。</p>
+</blockquote>
+</li>
+<li><p>6.2.1    添加solrj的依赖关系</p>
+<!-- solr客户端 -->
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.solr&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;solr-solrj&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>6.3    商品信息导入索引库</p>
+</li>
+<li><p>6.3.1    需求分析</p>
+<blockquote>
+<pre><code>需要把数据库中的商品信息导入索引库，需要商品的id、商品的名称、商品的卖点、商品的价格、商品的图片、商品的分类名称。
+原则：需要展示给用户的字段、需要搜索的字段需要添加到索引库。
+</code></pre></blockquote>
+</li>
+<li><p>6.3.2    Sql语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    a.id,</span><br><span class="line">    a.title,</span><br><span class="line">    a.sell_point,</span><br><span class="line">    a.price,</span><br><span class="line">    a.image,</span><br><span class="line">    b. <span class="keyword">NAME</span> category_name</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    tb_item a</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> tb_item_cat b <span class="keyword">ON</span> a.cid = b.id</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>6.3.3    POJO定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line">    <span class="keyword">private</span> String sell_point;</span><br><span class="line">    <span class="keyword">private</span> Long price;</span><br><span class="line">    <span class="keyword">private</span> String image;</span><br><span class="line">    <span class="keyword">private</span> String category_name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>6.3.4 Mapper</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//mybatis.org//DTD Mapper 3.0//EN"</span> <span class="meta-string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.j1705.search.mapper.ItemMapper"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getItemList"</span> <span class="attr">resultType</span>=<span class="string">"com.j1705.search.pojo.Item"</span>&gt;</span></span><br><span class="line">        SELECT</span><br><span class="line">            a.id,</span><br><span class="line">            a.title,</span><br><span class="line">            a.sell_point,</span><br><span class="line">            a.price,</span><br><span class="line">            a.image,</span><br><span class="line">            b. NAME category_name</span><br><span class="line">        FROM</span><br><span class="line">            tb_item a</span><br><span class="line">        LEFT JOIN tb_item_cat b ON a.cid = b.id</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>6.3.5    Service</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemServiceImpl</span> <span class="keyword">implements</span> <span class="title">ItemService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ItemMapper itemMapper;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SolrServer solrServer;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MsgResult <span class="title">importItemToIndex</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//查询商品列表</span></span><br><span class="line">        List&lt;Item&gt; itemList = itemMapper.getItemList();</span><br><span class="line">        <span class="comment">//将商品列表导入solr</span></span><br><span class="line">        <span class="keyword">for</span> (Item item : itemList) &#123;</span><br><span class="line">            SolrInputDocument document = <span class="keyword">new</span> SolrInputDocument();</span><br><span class="line">            document.addField(<span class="string">"id"</span>, item.getId());</span><br><span class="line">            document.addField(<span class="string">"item_title"</span>, item.getTitle());</span><br><span class="line">            document.addField(<span class="string">"item_sell_point"</span>, item.getSell_point());</span><br><span class="line">            document.addField(<span class="string">"item_price"</span>, item.getPrice());</span><br><span class="line">            document.addField(<span class="string">"item_image"</span>, item.getImage());</span><br><span class="line">            document.addField(<span class="string">"item_category_name"</span>, item.getCategory_name());</span><br><span class="line">            <span class="comment">//将文档写入索引库</span></span><br><span class="line">            solrServer.add(document);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//提交修改</span></span><br><span class="line">        solrServer.commit();</span><br><span class="line">        <span class="keyword">return</span> MsgResult.ok();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>6.3.6 Controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"> <span class="meta">@RequestMapping</span>(<span class="string">"/manager"</span>)</span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="meta">@Autowired</span></span><br><span class="line">     <span class="keyword">private</span> ItemService itemService;</span><br><span class="line"> </span><br><span class="line">     <span class="meta">@RequestMapping</span>(<span class="string">"/importall"</span>)</span><br><span class="line">     <span class="meta">@ResponseBody</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> MsgResult <span class="title">importAll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         MsgResult result = <span class="keyword">null</span>;</span><br><span class="line">         <span class="keyword">try</span> &#123;</span><br><span class="line">         result = itemService.importItemToIndex();</span><br><span class="line">         &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">         e.printStackTrace();</span><br><span class="line">         <span class="keyword">return</span> MsgResult.build(<span class="number">500</span>, ExceptionUtil.getStackTrace(e));</span><br><span class="line">         &#125;</span><br><span class="line">     <span class="keyword">return</span> result;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>6.3.7     Pom.xml</p>
+<blockquote>
+<p>需要在pom文件的build节点中添加如下信息，否则mapper映射文件不会被发布，从而发生异常。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>false<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>6.3.8    spring-mybatis.xml</li>
+<li>扫描包添加j1705-search工程中的包<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 加载mapper文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.mapper.MapperScannerConfigurer"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basePackage"</span> <span class="attr">value</span>=<span class="string">"com.j1705.mapper,com.j1705.search.mapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="7-实现商品搜索功能"><a href="#7-实现商品搜索功能" class="headerlink" title="7.    实现商品搜索功能"></a>7.    实现商品搜索功能</h4><blockquote>
+<p>   实现商品搜索功能需要两步实现：<br>  第一步：在j1705-search工程中发布服务<br>   第二步：在j1705-portal中调用服务并展示结果。</p>
+</blockquote>
+<ul>
+<li>7.1    发布搜索服务</li>
+<li>7.1.1    </li>
+<li><p>Dao</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回值SearchResult：</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchResult</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Long recordCount;</span><br><span class="line">        <span class="keyword">private</span> List&lt;Item&gt; itemList;</span><br><span class="line">        <span class="keyword">private</span> Integer pageCount;</span><br><span class="line">        <span class="keyword">private</span> Integer curPage;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>service</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Service</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemSearchDaoImpl</span> <span class="keyword">implements</span> <span class="title">ItemSearchDao</span> </span>&#123;</span><br><span class="line">        <span class="meta">@Autowired</span></span><br><span class="line">        <span class="keyword">private</span> SolrServer solrServer;</span><br><span class="line">            </span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> SearchResult <span class="title">searchItem</span><span class="params">(SolrQuery solrQuery)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">            <span class="comment">//根据查询条件搜索索引库</span></span><br><span class="line">            QueryResponse response = solrServer.query(solrQuery);</span><br><span class="line">            <span class="comment">//取商品列表</span></span><br><span class="line">            SolrDocumentList documentList = response.getResults();</span><br><span class="line">            <span class="comment">//商品列表</span></span><br><span class="line">            List&lt;Item&gt; itemList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (SolrDocument solrDocument : documentList) &#123;</span><br><span class="line">                Item item = <span class="keyword">new</span> Item();</span><br><span class="line">                item.setId((Long) solrDocument.get(<span class="string">"id"</span>));</span><br><span class="line">                <span class="comment">//取高亮显示</span></span><br><span class="line">                Map&lt;String, Map&lt;String, List&lt;String&gt;&gt;&gt; highlighting = response.getHighlighting();</span><br><span class="line">                List&lt;String&gt; list = highlighting.get(solrDocument.get(<span class="string">"id"</span>)).get(<span class="string">"item_title"</span>);</span><br><span class="line">                String title = <span class="string">""</span>;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">null</span> != list &amp;&amp; !list.isEmpty()) &#123;</span><br><span class="line">                    title = list.get(<span class="number">0</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    title = (String) solrDocument.get(<span class="string">"item_title"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                item.setTitle(title);</span><br><span class="line">                item.setPrice((Long) solrDocument.get(<span class="string">"item_price"</span>));</span><br><span class="line">                item.setSell_point((String) solrDocument.get(<span class="string">"item_sell_point"</span>));</span><br><span class="line">                item.setImage((String) solrDocument.get(<span class="string">"item_image"</span>));</span><br><span class="line">                item.setCategory_name((String) solrDocument.get(<span class="string">"item_category_name"</span>));</span><br><span class="line">                itemList.add(item);</span><br><span class="line">            &#125;</span><br><span class="line">            SearchResult result = <span class="keyword">new</span> SearchResult();</span><br><span class="line">            <span class="comment">//商品列表</span></span><br><span class="line">            result.setItemList(itemList);</span><br><span class="line">            <span class="comment">//总记录数据</span></span><br><span class="line">            result.setRecordCount(documentList.getNumFound());</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>7.1.2.    Service</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Service</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemSearchServiceImpl</span> <span class="keyword">implements</span> <span class="title">ItemSearchService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;SEARCH_RESULT_PAGE_SIZE&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> Integer PAGE_SIZE;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ItemSearchDao itemSearchDao;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SearchResult <span class="title">searchItem</span><span class="params">(String queryString, Integer page)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//创建一个查询对象</span></span><br><span class="line">        SolrQuery solrQuery = <span class="keyword">new</span> SolrQuery();</span><br><span class="line">        <span class="comment">//查询条件</span></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isBlank(queryString)) &#123;</span><br><span class="line">            solrQuery.setQuery(<span class="string">"*:*"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            solrQuery.setQuery(queryString);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//分页条件</span></span><br><span class="line">        <span class="keyword">if</span> (page == <span class="keyword">null</span>) &#123;</span><br><span class="line">            page = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        solrQuery.setStart((page -<span class="number">1</span>) * PAGE_SIZE);</span><br><span class="line">        solrQuery.setRows(PAGE_SIZE);</span><br><span class="line">        <span class="comment">//高亮显示</span></span><br><span class="line">        solrQuery.setHighlight(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//设置高亮显示的域</span></span><br><span class="line">        solrQuery.addHighlightField(<span class="string">"item_title"</span>);</span><br><span class="line">        <span class="comment">//高亮显示前缀</span></span><br><span class="line">        solrQuery.setHighlightSimplePre(<span class="string">"&lt;em style=\"color:red\"&gt;"</span>);</span><br><span class="line">        <span class="comment">//后缀</span></span><br><span class="line">        solrQuery.setHighlightSimplePost(<span class="string">"&lt;/em&gt;"</span>);</span><br><span class="line">        <span class="comment">//设置默认搜索域</span></span><br><span class="line">        solrQuery.set(<span class="string">"df"</span>, <span class="string">"item_keywords"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//执行查询</span></span><br><span class="line">        SearchResult result = itemSearchDao.searchItem(solrQuery);</span><br><span class="line">        <span class="comment">//计算分页</span></span><br><span class="line">        Long recordCount = result.getRecordCount();</span><br><span class="line">        <span class="keyword">int</span> pageCount = (<span class="keyword">int</span>) (recordCount / PAGE_SIZE);</span><br><span class="line">        <span class="keyword">if</span> (recordCount % PAGE_SIZE &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            pageCount++;</span><br><span class="line">        &#125;</span><br><span class="line">        result.setPageCount(pageCount);</span><br><span class="line">        result.setCurPage(page);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>7.1.3.    Controller<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ItemSearchController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> ItemSearchService itemSearchService;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/q"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> MsgResult <span class="title">search</span><span class="params">(@RequestParam(value = <span class="string">"kw"</span>)</span> String queryString,</span></span><br><span class="line"><span class="function">        @<span class="title">RequestParam</span><span class="params">(value = <span class="string">"page"</span>, defaultValue = <span class="string">"1"</span>)</span> Integer page) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (StringUtils.isBlank(queryString)) &#123;</span><br><span class="line">        <span class="keyword">return</span> MsgResult.build(<span class="number">400</span>, <span class="string">"查询条件是必须的参数"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    SearchResult result = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        result = itemSearchService.searchItem(queryString, page);</span><br><span class="line">         </span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        <span class="keyword">return</span> MsgResult.build(<span class="number">500</span>, ExceptionUtil.getStackTrace(e));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> MsgResult.ok(result);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>7.1.4    解决get请求乱码问题    </p>
+<blockquote>
+<p>在controller中添加字符串编码转换逻辑：<br>Tomcat默认的编码为ISO8859-1，需要转换成utf-8的编码。</p>
+</blockquote>
+</li>
+<li><p>7.2.调用服务实现搜索功能</p>
+</li>
+<li><p>7.2.1.功能分析</p>
+<blockquote>
+<p>j1705-portal展示首页，用户在首页输入查询内容提交至j1705-portal，j1705-portal调用j1705-search提供的搜索服务，得到商品列表。在j1705-portal中渲染商品列表展示搜索结果页面。</p>
+</blockquote>
+</li>
+<li><p>7.2.3.    Service层</p>
+<blockquote>
+<p>   使用HttpClientUtil工具类调用搜索服务，返回一个json数据，需要把json数据转换成msgResult对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Service</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchServiceImpl</span> <span class="keyword">implements</span> <span class="title">SearchService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;SEARCH_BASE_URL&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String SEARCH_BASE_URL;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SearchResult <span class="title">searchItemList</span><span class="params">(String queryString, Integer page)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//查询参数</span></span><br><span class="line">        Map&lt;String, String&gt; param = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        param.put(<span class="string">"kw"</span>, queryString);</span><br><span class="line">        param.put(<span class="string">"page"</span>, page==<span class="keyword">null</span>?<span class="string">"1"</span>:page.toString());</span><br><span class="line">        <span class="comment">//调用j1705-search提供的搜索服务</span></span><br><span class="line">        String resultString = HttpClientUtil.doGet(SEARCH_BASE_URL, param);</span><br><span class="line">        <span class="comment">//转换成MsgResult对象</span></span><br><span class="line">        MsgResult msgResult = MsgResult.formatToPojo(resultString, SearchResult<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        SearchResult searchResult = <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//查询成功</span></span><br><span class="line">        <span class="keyword">if</span> (msgResult.getStatus() == <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="comment">//取查询结果</span></span><br><span class="line">            searchResult = (SearchResult) msgResult.getData();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> searchResult;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>7.2.4.    Controller<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SearchController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SearchService searchService;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/search"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">searchItemList</span><span class="params">(@RequestParam(value=<span class="string">"q"</span>)</span>String queryString, Integer page, Model model) <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//字符串转码</span></span><br><span class="line">        queryString = <span class="keyword">new</span> String(queryString.getBytes(<span class="string">"ISO8859-1"</span>), <span class="string">"UTF-8"</span>);</span><br><span class="line">        </span><br><span class="line">        SearchResult searchResult = searchService.searchItemList(queryString, page);</span><br><span class="line">        model.addAttribute(<span class="string">"itemList"</span>, searchResult.getItemList());</span><br><span class="line">        model.addAttribute(<span class="string">"query"</span>, queryString);</span><br><span class="line">        model.addAttribute(<span class="string">"totalPages"</span>, searchResult.getPageCount());</span><br><span class="line">        model.addAttribute(<span class="string">"page"</span>, searchResult.getCurPage());</span><br><span class="line">        model.addAttribute(<span class="string">"pages"</span>, searchResult.getPageCount());</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"search"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢大爷~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/zfb_pay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://hexo-1252269037.cos.ap-chengdu.myqcloud.com/hexo_blog/static_img/wx_pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,25 +386,70 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Solr</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2022/03/22/java基础知识/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JAVA知识
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2022/03/22/其他知识点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">其他笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -242,9 +472,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,
